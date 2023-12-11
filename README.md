@@ -9,6 +9,16 @@
 ## Quickstart
 
 ```js
+import { snippetz, undici } from '@scalar/snippetz'
+
+const snippet = snippetz().get(
+  undici({
+    url: 'https://example.com'
+  })
+)
+```
+
+<!-- ```js
 import { format, print, undici } from '@scalar/snippetz'
 
 const tree = undici({
@@ -16,7 +26,7 @@ const tree = undici({
 })
 
 console.log(format(print(tree)))
-```
+``` -->
 
 Output:
 
