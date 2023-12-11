@@ -1,4 +1,4 @@
-import { expect, describe } from 'vitest'
+import { expect, describe, it } from 'vitest'
 import { format } from './format'
 
 const tree = {
@@ -25,10 +25,12 @@ const tree = {
 }
 
 describe('format', async () => {
-  expect(
-    await format({
-      target: 'js',
-      tree,
-    })
-  ).toBe(`const answer = 42\n`)
+  it('formats basic JS', async () => {
+    expect(
+      await format({
+        target: 'js',
+        tree,
+      })
+    ).toBe(`const answer = 42\n`)
+  })
 })

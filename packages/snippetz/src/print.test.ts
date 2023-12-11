@@ -1,4 +1,4 @@
-import { expect, describe } from 'vitest'
+import { expect, describe, it } from 'vitest'
 import { print } from './print'
 
 const tree = {
@@ -25,10 +25,12 @@ const tree = {
 }
 
 describe('print', async () => {
-  expect(
-    await print({
-      target: 'js',
-      tree,
-    })
-  ).toBe(`const answer = 42;\n`)
+  it('prints basic JS', async () => {
+    expect(
+      print({
+        target: 'js',
+        tree,
+      })
+    ).toBe(`const answer = 42;\n`)
+  })
 })

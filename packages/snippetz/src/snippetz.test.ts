@@ -1,4 +1,4 @@
-import { expect, describe } from 'vitest'
+import { expect, describe, it } from 'vitest'
 import { snippetz } from './snippetz'
 
 const tree = {
@@ -25,10 +25,12 @@ const tree = {
 }
 
 describe('snippetz', async () => {
-  const snippet = await snippetz().get({
-    target: 'js',
-    tree,
-  })
+  it('formats basic JS', async () => {
+    const snippet = await snippetz().get({
+      target: 'js',
+      tree,
+    })
 
-  expect(snippet).toBe(`const answer = 42\n`)
+    expect(snippet).toBe(`const answer = 42\n`)
+  })
 })
