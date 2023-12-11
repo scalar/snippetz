@@ -14,13 +14,14 @@ A modern way to generate code examples for different languages.
 ## Installation
 
 ```
-npm install @scalar/snippetz
+npm install @scalar/snippetz @scalar/snippetz-plugin-undici
 ```
 
 ## Usage
 
 ```js
-import { snippetz, undici } from '@scalar/snippetz'
+import { snippetz } from '@scalar/snippetz'
+import { undici } from '@scalar/snippetz-plugin-undici'
 
 const snippet = snippetz().get(
   undici({
@@ -41,7 +42,7 @@ const snippet = snippetz().get(
 ### Generate an abstract tree (AST)
 
 ```js
-import { undici } from '@scalar/snippetz'
+import { undici } from '@scalar/snippetz-plugin-undici'
 
 const source = undici({
   url: 'https://example.com'
