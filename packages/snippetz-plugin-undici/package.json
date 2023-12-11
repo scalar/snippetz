@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",
-    "test": "vitest"
+    "test": "vitest",
+    "types:check": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
     "@types/har-format": "^1.2.15",
