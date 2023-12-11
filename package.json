@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test",
+    "bump": "CI=true pnpm run test && pnpm changeset version"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
