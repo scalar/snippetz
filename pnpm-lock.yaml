@@ -4,27 +4,51 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  abstract-syntax-tree:
-    specifier: ^2.21.1
-    version: 2.21.1
-  prettier:
-    specifier: ^3.1.1
-    version: 3.1.1
+importers:
 
-devDependencies:
-  turbo:
-    specifier: ^1.11.1
-    version: 1.11.1
-  typescript:
-    specifier: ^5.2.2
-    version: 5.3.3
-  vite:
-    specifier: ^5.0.0
-    version: 5.0.7
-  vitest:
-    specifier: ^1.0.4
-    version: 1.0.4
+  .:
+    dependencies:
+      abstract-syntax-tree:
+        specifier: ^2.21.1
+        version: 2.21.1
+      prettier:
+        specifier: ^3.1.1
+        version: 3.1.1
+    devDependencies:
+      turbo:
+        specifier: ^1.11.1
+        version: 1.11.1
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.3
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.7
+      vitest:
+        specifier: ^1.0.4
+        version: 1.0.4
+
+  packages/snippetz:
+    dependencies:
+      abstract-syntax-tree:
+        specifier: ^2.21.1
+        version: 2.21.1
+      prettier:
+        specifier: ^3.1.1
+        version: 3.1.1
+    devDependencies:
+      turbo:
+        specifier: ^1.11.1
+        version: 1.11.1
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.3
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.7
+      vitest:
+        specifier: ^1.0.4
+        version: 1.0.4
 
 packages:
 
