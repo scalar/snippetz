@@ -1,6 +1,8 @@
 import { Parser } from 'acorn'
 
-export function undici(request: any) {
+import type { Request } from 'har-format'
+
+export function undici(request: Partial<Request>) {
   // Defaults
   const normalizedRequest = {
     method: 'GET',

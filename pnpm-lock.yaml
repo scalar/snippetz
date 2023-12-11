@@ -40,6 +40,9 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
     devDependencies:
+      '@types/har-format':
+        specifier: ^1.2.15
+        version: 1.2.15
       turbo:
         specifier: ^1.11.1
         version: 1.11.1
@@ -370,6 +373,10 @@ packages:
 
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
+    dev: true
+
+  /@types/har-format@1.2.15:
+    resolution: {integrity: sha512-RpQH4rXLuvTXKR0zqHq3go0RVXYv/YVqv4TnPH95VbwUxZdQlK1EtcMvQvMpDngHbt13Csh9Z4qT9AbkiQH5BA==}
     dev: true
 
   /@vitest/expect@1.0.4:
