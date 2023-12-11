@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest'
+import { expect, describe } from 'vitest'
 import { format } from './format'
 
 const tree = {
@@ -24,7 +24,7 @@ const tree = {
   ],
 }
 
-test('format', async () => {
+describe('format', async () => {
   expect(
     await format({
       target: 'js',

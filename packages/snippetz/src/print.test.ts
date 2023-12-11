@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest'
+import { expect, describe } from 'vitest'
 import { print } from './print'
 
 const tree = {
@@ -24,7 +24,7 @@ const tree = {
   ],
 }
 
-test('print', async () => {
+describe('print', async () => {
   expect(
     await print({
       target: 'js',

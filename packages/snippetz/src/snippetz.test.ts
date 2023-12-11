@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest'
+import { expect, describe } from 'vitest'
 import { snippetz } from './snippetz'
 
 const tree = {
@@ -24,7 +24,7 @@ const tree = {
   ],
 }
 
-test('snippetz', async () => {
+describe('snippetz', async () => {
   const snippet = await snippetz().get({
     target: 'js',
     tree,
