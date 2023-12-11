@@ -27,7 +27,6 @@ export function undici(request: Partial<Request>) {
   }
 
   // Query
-
   const searchParams = new URLSearchParams(
     normalizedRequest.queryString
       ? arrayToObject(normalizedRequest.queryString)
@@ -41,6 +40,17 @@ export function undici(request: Partial<Request>) {
 
     normalizedRequest.headers.forEach((header) => {
       options.headers![header.name] = header.value
+    })
+  }
+
+  // Cookies
+  if (normalizedRequest.cookies) {
+    options.headers = options.headers || {}
+
+    normalizedRequest.cookies.forEach((cookie) => {
+      options.headers!['Set-Cookie'] = options.headers!['Set-Cookie']
+        ? `${options.headers!['Set-Cookie']}; ${cookie.name}=${cookie.value}`
+        : `${cookie.name}=${cookie.value}`
     })
   }
 

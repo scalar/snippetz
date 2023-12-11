@@ -112,4 +112,28 @@ const {statusCode, headers, body} = await request("https://example.com?foo=bar&b
 });
 `)
   })
+
+  it('has the path', () => {
+    const source = undici({
+      url: 'https://example.com',
+      cookies: [
+        {
+          name: 'foo',
+          value: 'bar',
+        },
+        {
+          name: 'bar',
+          value: 'foo',
+        },
+      ],
+    })
+
+    expect(print(source)).toBe(`import {request} from "undici";
+const {statusCode, headers, body} = await request("https://example.com", {
+  "headers": {
+    "Set-Cookie": "foo=bar; bar=foo"
+  }
+});
+`)
+  })
 })
