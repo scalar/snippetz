@@ -13,9 +13,18 @@ export function undici(request: Partial<Request>) {
   normalizedRequest.method = normalizedRequest.method.toUpperCase()
 
   // Reset undici defaults
-  const options = {
+  const options: Record<string, any> = {
     method:
       normalizedRequest.method === 'GET' ? undefined : normalizedRequest.method,
+  }
+
+  // Headers
+  if (normalizedRequest.headers) {
+    options.headers = {}
+
+    normalizedRequest.headers.forEach((header) => {
+      options.headers![header.name] = header.value
+    })
   }
 
   // Remove undefined keys
