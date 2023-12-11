@@ -1,6 +1,6 @@
 import { expect, describe, it } from 'vitest'
 import { undici } from './undici'
-import { print } from '../../print'
+import { print } from '@scalar/snippetz'
 
 describe('undici', () => {
   it('has import', () => {
