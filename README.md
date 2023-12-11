@@ -4,6 +4,11 @@
 [![GitHub License](https://img.shields.io/github/license/scalar/snippetz)](https://github.com/scalar/snippetz/blob/main/LICENSE)
 [![Discord](https://img.shields.io/discord/1135330207960678410?style=flat&color=5865F2)](https://discord.gg/8HeZcRGPFS)
 
+> [!WARNING]
+> It’s pretty early. Don’t use this in production
+
+A modern way to generate code examples for different languages.
+
 ## Installation
 
 ```
