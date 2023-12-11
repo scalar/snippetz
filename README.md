@@ -10,7 +10,7 @@
 npm install @scalar/snippetz
 ```
 
-## Quickstart
+## Usage
 
 ```js
 import { snippetz, undici } from '@scalar/snippetz'
@@ -20,37 +20,27 @@ const snippet = snippetz().get(
     url: 'https://example.com'
   })
 )
-```
 
-<!-- ```js
-import { format, print, undici } from '@scalar/snippetz'
+/* Output */
 
-const source = undici({
-  url: 'https://example.com'
-})
-
-console.log(format(print(source)))
-``` -->
-
-Output:
-
-```
 // import { request } from 'undici'
 // const { statusCode, headers, trailers, body } = await request(
 //   'https://example.com',
 // )
 ```
 
-## Usage
+## API
 
 ### Generate an abstract tree (AST)
 
 ```js
 import { undici } from '@scalar/snippetz'
 
-const tree = undici({
+const source = undici({
   url: 'https://example.com'
 })
+
+console.log(source)
 ```
 
 ### Print the source code
@@ -58,7 +48,10 @@ const tree = undici({
 ```js
 import { print } from '@scalar/snippetz'
 
-const source = print(tree)
+console.log(print({
+  target: 'js',
+  tree: …
+}))
 ```
 
 ### Format the source code
@@ -66,5 +59,8 @@ const source = print(tree)
 ```js
 import { format } from '@scalar/snippetz'
 
-console.log(format(source))
+console.log(format({
+  target: 'js',
+  tree: …
+}))
 ```
