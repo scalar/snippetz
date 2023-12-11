@@ -53,4 +53,33 @@ const {statusCode, headers, trailers, body} = await request("https://example.com
 });
 `)
   })
+
+  it('has JSON body', () => {
+    const source = undici({
+      url: 'https://example.com',
+      headers: [
+        {
+          name: 'Content-Type',
+          value: 'application/json',
+        },
+      ],
+      postData: {
+        mimeType: 'application/json',
+        text: JSON.stringify({
+          hello: 'world',
+        }),
+      },
+    })
+
+    expect(print(source)).toBe(`import {request} from "undici";
+const {statusCode, headers, trailers, body} = await request("https://example.com", {
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "hello": "world"
+  }
+});
+`)
+  })
 })

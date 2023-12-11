@@ -34,6 +34,17 @@ export function undici(request: Partial<Request>) {
     }
   })
 
+  // Add body
+  if (normalizedRequest.postData) {
+    // Plain text
+    options.body = normalizedRequest.postData.text
+
+    // JSON
+    if (normalizedRequest.postData.mimeType === 'application/json') {
+      options.body = JSON.parse(options.body)
+    }
+  }
+
   // Transform to JSON
   const jsonOptions = Object.keys(options).length
     ? `, ${JSON.stringify(options, null, 2)}`
