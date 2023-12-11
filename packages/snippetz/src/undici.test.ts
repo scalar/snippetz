@@ -82,4 +82,34 @@ const {statusCode, headers, trailers, body} = await request("https://example.com
 });
 `)
   })
+
+  it('has query string', () => {
+    const source = undici({
+      url: 'https://example.com',
+      headers: [
+        {
+          name: 'Content-Type',
+          value: 'application/json',
+        },
+      ],
+      queryString: [
+        {
+          name: 'foo',
+          value: 'bar',
+        },
+        {
+          name: 'bar',
+          value: 'foo',
+        },
+      ],
+    })
+
+    expect(print(source)).toBe(`import {request} from "undici";
+const {statusCode, headers, trailers, body} = await request("https://example.com?foo=bar&bar=foo", {
+  "headers": {
+    "Content-Type": "application/json"
+  }
+});
+`)
+  })
 })

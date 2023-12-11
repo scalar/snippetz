@@ -2,6 +2,14 @@ import { Parser } from 'acorn'
 
 import type { Request } from 'har-format'
 
+/** Helper function to map { name: 'foo', value: 'bar' } to { foo: 'bar' } */
+function arrayToObject(items: any) {
+  return items.reduce((acc: any, item: any) => {
+    acc[item.name] = item.value
+    return acc
+  }, {})
+}
+
 export function undici(request: Partial<Request>) {
   // Defaults
   const normalizedRequest = {
@@ -17,6 +25,15 @@ export function undici(request: Partial<Request>) {
     method:
       normalizedRequest.method === 'GET' ? undefined : normalizedRequest.method,
   }
+
+  // Query
+
+  const searchParams = new URLSearchParams(
+    normalizedRequest.queryString
+      ? arrayToObject(normalizedRequest.queryString)
+      : undefined
+  )
+  const queryString = searchParams.size ? `?${searchParams.toString()}` : ''
 
   // Headers
   if (normalizedRequest.headers) {
@@ -55,7 +72,7 @@ export function undici(request: Partial<Request>) {
 
 import { request } from "undici"
 
-const { statusCode, headers, trailers, body } = await request("${normalizedRequest.url}"${jsonOptions})
+const { statusCode, headers, trailers, body } = await request("${normalizedRequest.url}${queryString}"${jsonOptions})
 
 `
 
