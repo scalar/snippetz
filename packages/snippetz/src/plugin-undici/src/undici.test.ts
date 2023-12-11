@@ -1,6 +1,6 @@
 import { expect, describe, it } from 'vitest'
 import { undici } from './undici'
-import { print } from './print'
+import { print } from '../../print'
 
 describe('undici', () => {
   it('has import', () => {
