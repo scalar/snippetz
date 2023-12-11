@@ -72,7 +72,7 @@ export function undici(request: Partial<Request>) {
 
 import { request } from "undici"
 
-const { statusCode, headers, trailers, body } = await request("${normalizedRequest.url}${queryString}"${jsonOptions})
+const { statusCode, headers, body } = await request("${normalizedRequest.url}${queryString}"${jsonOptions})
 
 `
 

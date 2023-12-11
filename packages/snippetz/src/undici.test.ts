@@ -17,7 +17,7 @@ describe('undici', () => {
     })
 
     expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, trailers, body} = await request("https://example.com");
+const {statusCode, headers, body} = await request("https://example.com");
 `)
   })
 
@@ -28,7 +28,7 @@ const {statusCode, headers, trailers, body} = await request("https://example.com
     })
 
     expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, trailers, body} = await request("https://example.com", {
+const {statusCode, headers, body} = await request("https://example.com", {
   "method": "POST"
 });
 `)
@@ -46,7 +46,7 @@ const {statusCode, headers, trailers, body} = await request("https://example.com
     })
 
     expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, trailers, body} = await request("https://example.com", {
+const {statusCode, headers, body} = await request("https://example.com", {
   "headers": {
     "Content-Type": "application/json"
   }
@@ -72,7 +72,7 @@ const {statusCode, headers, trailers, body} = await request("https://example.com
     })
 
     expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, trailers, body} = await request("https://example.com", {
+const {statusCode, headers, body} = await request("https://example.com", {
   "headers": {
     "Content-Type": "application/json"
   },
@@ -105,7 +105,7 @@ const {statusCode, headers, trailers, body} = await request("https://example.com
     })
 
     expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, trailers, body} = await request("https://example.com?foo=bar&bar=foo", {
+const {statusCode, headers, body} = await request("https://example.com?foo=bar&bar=foo", {
   "headers": {
     "Content-Type": "application/json"
   }

@@ -29,7 +29,7 @@ const snippet = snippetz().get(
 /* Output */
 
 // import { request } from 'undici'
-// const { statusCode, headers, trailers, body } = await request(
+// const { statusCode, headers, body } = await request(
 //   'https://example.com',
 // )
 ```
