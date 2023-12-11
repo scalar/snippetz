@@ -1,77 +1,49 @@
+import { Parser } from 'acorn'
+
 export function undici(request: any) {
+  // Defaults
+  const normalizedRequest = {
+    method: 'GET',
+    ...request,
+  }
+
+  // Normalization
+  normalizedRequest.method = normalizedRequest.method.toUpperCase()
+
+  // Reset undici defaults
+  const options = {
+    method:
+      normalizedRequest.method === 'GET' ? undefined : normalizedRequest.method,
+  }
+
+  // Remove undefined keys
+  Object.keys(options).forEach((key) => {
+    if (options[key] === undefined) {
+      delete options[key]
+    }
+  })
+
+  // Transform to JSON
+  const jsonOptions = Object.keys(options).length
+    ? `, ${JSON.stringify(options, null, 2)}`
+    : ''
+
+  // Code Template
+  const code = `
+
+import { request } from "undici"
+
+const { statusCode, headers, trailers, body } = await request("${normalizedRequest.url}"${jsonOptions})
+
+`
+
+  // Create an AST
   return {
-    type: 'Program',
-    sourceType: 'module',
-    body: [
-      {
-        type: 'ImportDeclaration',
-        specifiers: [
-          {
-            type: 'ImportSpecifier',
-            local: { type: 'Identifier', name: 'request' },
-            imported: { type: 'Identifier', name: 'request' },
-          },
-        ],
-        source: { type: 'Literal', value: 'undici' },
-      },
-      {
-        type: 'VariableDeclaration',
-        kind: 'const',
-        declarations: [
-          {
-            type: 'VariableDeclarator',
-            id: {
-              type: 'ObjectPattern',
-              properties: [
-                {
-                  type: 'Property',
-                  key: { type: 'Identifier', name: 'statusCode' },
-                  value: { type: 'Identifier', name: 'statusCode' },
-                  kind: 'init',
-                  computed: false,
-                  method: false,
-                  shorthand: true,
-                },
-                {
-                  type: 'Property',
-                  key: { type: 'Identifier', name: 'headers' },
-                  value: { type: 'Identifier', name: 'headers' },
-                  kind: 'init',
-                  computed: false,
-                  method: false,
-                  shorthand: true,
-                },
-                {
-                  type: 'Property',
-                  key: { type: 'Identifier', name: 'trailers' },
-                  value: { type: 'Identifier', name: 'trailers' },
-                  kind: 'init',
-                  computed: false,
-                  method: false,
-                  shorthand: true,
-                },
-                {
-                  type: 'Property',
-                  key: { type: 'Identifier', name: 'body' },
-                  value: { type: 'Identifier', name: 'body' },
-                  kind: 'init',
-                  computed: false,
-                  method: false,
-                  shorthand: true,
-                },
-              ],
-            },
-            init: {
-              type: 'AwaitExpression',
-              argument: {
-                type: 'CallExpression',
-                callee: { type: 'Identifier', name: 'request' },
-                arguments: [{ type: 'Literal', value: request.url }],
-              },
-            },
-          },
-        ],
-      },
-    ],
+    target: 'js',
+    tree: Parser.parse(code, {
+      ecmaVersion: 2022,
+      locations: false,
+      sourceType: 'module',
+    }),
   }
 }

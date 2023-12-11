@@ -25,7 +25,10 @@ const tree = {
 }
 
 test('snippetz', async () => {
-  const snippet = await snippetz().get(tree)
+  const snippet = await snippetz().get({
+    target: 'js',
+    tree,
+  })
 
   expect(snippet).toBe(`const answer = 42\n`)
 })

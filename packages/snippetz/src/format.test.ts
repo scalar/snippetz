@@ -1,14 +1,34 @@
 import { expect, test } from 'vitest'
 import { format } from './format'
 
-test('format', async () => {
-  const source = `import {request} from "undici";
-const {statusCode, headers, trailers, body} = await request("http://localhost:3000/foo");
-`
+const tree = {
+  type: 'Program',
+  body: [
+    {
+      type: 'VariableDeclaration',
+      declarations: [
+        {
+          type: 'VariableDeclarator',
+          id: {
+            type: 'Identifier',
+            name: 'answer',
+          },
+          init: {
+            type: 'Literal',
+            value: 42,
+          },
+        },
+      ],
+      kind: 'const',
+    },
+  ],
+}
 
-  expect(await format(source)).toBe(`import { request } from 'undici'
-const { statusCode, headers, trailers, body } = await request(
-  'http://localhost:3000/foo',
-)
-`)
+test('format', async () => {
+  expect(
+    await format({
+      target: 'js',
+      tree,
+    })
+  ).toBe(`const answer = 42\n`)
 })

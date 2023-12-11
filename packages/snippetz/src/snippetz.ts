@@ -1,20 +1,23 @@
 import { format } from './format'
 import { print } from './print'
 
-export type SnippetOptions = {}
-
-export class Snippetz {
-  constructor(options?: SnippetOptions) {
-    // console.log(options)
-  }
-
-  get(tree: any) {
-    return format(print(tree))
-  }
+export type SnippetOptions = {
+  format: boolean
 }
 
-export function snippetz(tree: any) {
-  return new Snippetz({
-    tree,
-  })
+const defaultOptions = {
+  format: true,
+}
+
+export function snippetz() {
+  return {
+    get(source: any, options?: Partial<SnippetOptions>) {
+      options = {
+        ...defaultOptions,
+        ...options,
+      }
+
+      return options.format ? format(source) : print(source)
+    },
+  }
 }

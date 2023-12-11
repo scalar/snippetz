@@ -1,29 +1,34 @@
 import { expect, test } from 'vitest'
 import { print } from './print'
 
-test('print', async () => {
-  const tree = {
-    type: 'Program',
-    body: [
-      {
-        type: 'VariableDeclaration',
-        declarations: [
-          {
-            type: 'VariableDeclarator',
-            id: {
-              type: 'Identifier',
-              name: 'answer',
-            },
-            init: {
-              type: 'Literal',
-              value: 42,
-            },
+const tree = {
+  type: 'Program',
+  body: [
+    {
+      type: 'VariableDeclaration',
+      declarations: [
+        {
+          type: 'VariableDeclarator',
+          id: {
+            type: 'Identifier',
+            name: 'answer',
           },
-        ],
-        kind: 'const',
-      },
-    ],
-  }
+          init: {
+            type: 'Literal',
+            value: 42,
+          },
+        },
+      ],
+      kind: 'const',
+    },
+  ],
+}
 
-  expect(await print(tree)).toBe(`const answer = 42;\n`)
+test('print', async () => {
+  expect(
+    await print({
+      target: 'js',
+      tree,
+    })
+  ).toBe(`const answer = 42;\n`)
 })
