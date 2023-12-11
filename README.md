@@ -72,3 +72,18 @@ console.log(format({
   tree: …
 }))
 ```
+
+## Community
+
+We are API nerds. You too? Let’s chat on Discord: <https://discord.gg/8HeZcRGPFS>
+
+## Contributors
+
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
+
+Contributions are welcome! Read [`CONTRIBUTING`](https://github.com/scalar/snippetz/blob/main/CONTRIBUTING).
+
+## License
+
+The source code in this repository is licensed under [MIT](https://github.com/scalar/snippetz/blob/main/LICENSE).
