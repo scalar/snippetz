@@ -1,24 +1,47 @@
 # request plot (WIP)
 
-## Usage
 
-Input:
+## Quickstart
 
 ```js
+import { format, print, undici } from 'request-plot'
+
 const tree = undici({
   url: 'https://example.com'
 })
 
-const source = print(tree)
+console.log(format(print(tree)))
 
-console.log(format(source))
+// import { request } from 'undici'
+// const { statusCode, headers, trailers, body } = await request(
+//   'https://example.com',
+// )
 ```
 
-Output:
+## Usage
+
+### Generate an abstract tree (AST)
 
 ```js
-import { request } from 'undici'
-const { statusCode, headers, trailers, body } = await request(
-  'https://example.com',
-)
+import { undici } from 'request-plot'
+
+const tree = undici({
+  url: 'https://example.com'
+})
+```
+
+### Print the source code
+
+```js
+import { print } from 'request-plot'
+
+const source = print(tree)
+```
+
+### Format the source code
+
+```js
+import { format } from 'request-plot'
+
+console.log(format(source))
 ```
