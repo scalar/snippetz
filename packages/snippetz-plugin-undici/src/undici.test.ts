@@ -1,6 +1,5 @@
 import { expect, describe, it } from 'vitest'
 import { undici } from './undici'
-import { print } from '@scalar/snippetz'
 
 describe('undici', () => {
   it('has import', () => {
@@ -8,7 +7,7 @@ describe('undici', () => {
       url: 'https://example.com',
     })
 
-    expect(print(source)).toContain(`import {request} from "undici"`)
+    expect(source.code).toContain(`import { request } from "undici"`)
   })
 
   it('returns a basic request', () => {
@@ -16,8 +15,10 @@ describe('undici', () => {
       url: 'https://example.com',
     })
 
-    expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, body} = await request("https://example.com");
+    expect(source.code).toBe(`import { request } from "undici"
+
+const { statusCode, headers, body } = await request("https://example.com")
+
 `)
   })
 
@@ -27,10 +28,12 @@ const {statusCode, headers, body} = await request("https://example.com");
       method: 'post',
     })
 
-    expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, body} = await request("https://example.com", {
+    expect(source.code).toBe(`import { request } from "undici"
+
+const { statusCode, headers, body } = await request("https://example.com", {
   "method": "POST"
-});
+})
+
 `)
   })
 
@@ -45,12 +48,14 @@ const {statusCode, headers, body} = await request("https://example.com", {
       ],
     })
 
-    expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, body} = await request("https://example.com", {
+    expect(source.code).toBe(`import { request } from "undici"
+
+const { statusCode, headers, body } = await request("https://example.com", {
   "headers": {
     "Content-Type": "application/json"
   }
-});
+})
+
 `)
   })
 
@@ -71,15 +76,17 @@ const {statusCode, headers, body} = await request("https://example.com", {
       },
     })
 
-    expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, body} = await request("https://example.com", {
+    expect(source.code).toBe(`import { request } from "undici"
+
+const { statusCode, headers, body } = await request("https://example.com", {
   "headers": {
     "Content-Type": "application/json"
   },
   "body": {
     "hello": "world"
   }
-});
+})
+
 `)
   })
 
@@ -104,12 +111,14 @@ const {statusCode, headers, body} = await request("https://example.com", {
       ],
     })
 
-    expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, body} = await request("https://example.com?foo=bar&bar=foo", {
+    expect(source.code).toBe(`import { request } from "undici"
+
+const { statusCode, headers, body } = await request("https://example.com?foo=bar&bar=foo", {
   "headers": {
     "Content-Type": "application/json"
   }
-});
+})
+
 `)
   })
 
@@ -128,12 +137,14 @@ const {statusCode, headers, body} = await request("https://example.com?foo=bar&b
       ],
     })
 
-    expect(print(source)).toBe(`import {request} from "undici";
-const {statusCode, headers, body} = await request("https://example.com", {
+    expect(source.code).toBe(`import { request } from "undici"
+
+const { statusCode, headers, body } = await request("https://example.com", {
   "headers": {
     "Set-Cookie": "foo=bar; bar=foo"
   }
-});
+})
+
 `)
   })
 })

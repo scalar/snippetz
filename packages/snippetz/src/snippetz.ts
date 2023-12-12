@@ -1,13 +1,8 @@
 import { format } from './format'
-import { print } from './print'
 
-export type SnippetOptions = {
-  format: boolean
-}
+export type SnippetOptions = {}
 
-const defaultOptions = {
-  format: true,
-}
+const defaultOptions = {}
 
 export function snippetz() {
   return {
@@ -17,7 +12,7 @@ export function snippetz() {
         ...options,
       }
 
-      return options.format ? format(source) : print(source)
+      return format(source)
     },
   }
 }

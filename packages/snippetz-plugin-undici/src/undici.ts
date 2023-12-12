@@ -1,5 +1,3 @@
-import { Parser } from 'acorn'
-
 import type { Request } from 'har-format'
 
 /** Helper function to map { name: 'foo', value: 'bar' } to { foo: 'bar' } */
@@ -78,9 +76,7 @@ export function undici(request: Partial<Request>) {
     : ''
 
   // Code Template
-  const code = `
-
-import { request } from "undici"
+  const code = `import { request } from "undici"
 
 const { statusCode, headers, body } = await request("${normalizedRequest.url}${queryString}"${jsonOptions})
 
@@ -89,10 +85,6 @@ const { statusCode, headers, body } = await request("${normalizedRequest.url}${q
   // Create an AST
   return {
     target: 'js',
-    tree: Parser.parse(code, {
-      ecmaVersion: 2022,
-      locations: false,
-      sourceType: 'module',
-    }),
+    code,
   }
 }

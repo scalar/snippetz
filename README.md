@@ -39,7 +39,7 @@ const snippet = snippetz().get(
 
 ## API
 
-### Generate an abstract tree (AST)
+### Generate a snippet
 
 ```js
 import { undici } from '@scalar/snippetz-plugin-undici'
@@ -48,18 +48,7 @@ const source = undici({
   url: 'https://example.com'
 })
 
-console.log(source)
-```
-
-### Print the source code
-
-```js
-import { print } from '@scalar/snippetz'
-
-console.log(print({
-  target: 'js',
-  tree: …
-}))
+console.log(source.code)
 ```
 
 ### Format the source code
@@ -69,7 +58,7 @@ import { format } from '@scalar/snippetz'
 
 console.log(format({
   target: 'js',
-  tree: …
+  code: `const   answer= 42 ;`
 }))
 ```
 
