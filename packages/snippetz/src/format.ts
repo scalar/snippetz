@@ -1,6 +1,6 @@
 import babel from 'prettier/plugins/babel'
 import estree from 'prettier/plugins/estree'
-import * as prettier from 'prettier/standalone'
+import * as prettier from 'prettier'
 
 export async function format(source: any) {
   const target = source.target

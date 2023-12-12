@@ -9,6 +9,20 @@ export default defineConfig({
       name: meta.name,
       fileName: 'index',
     },
+    rollupOptions: {
+      external: [
+        'prettier',
+        'prettier/plugins/babel',
+        'prettier/plugins/estree',
+      ],
+      output: {
+        globals: {
+          prettier: 'prettier',
+          'prettier/plugins/babel': 'babel',
+          'prettier/plugins/estree': 'estree',
+        },
+      },
+    },
   },
   resolve: {
     alias: [
