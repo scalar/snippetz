@@ -31,8 +31,8 @@ jobs:
         uses: dtinth/setup-github-actions-caching-for-turbo@v1
         with:
           cache-prefix: snippetz
-      - name: Build
-        run: pnpm turbo build
+      - name: Build & test
+        run: pnpm turbo test
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
