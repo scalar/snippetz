@@ -23,6 +23,9 @@ importers:
       '@scalar/snippetz':
         specifier: workspace:*
         version: link:../packages/snippetz
+      '@scalar/snippetz-plugin-undici':
+        specifier: workspace:*
+        version: link:../packages/snippetz-plugin-undici
       vue:
         specifier: ^3.3.11
         version: 3.3.11(typescript@5.3.3)
