@@ -9,7 +9,7 @@ function arrayToObject(items: any) {
   }, {})
 }
 
-function isKeyNeedsQuotes(key) {
+function isKeyNeedsQuotes(key: string) {
   return /\s|-/.test(key);
 }
 
