@@ -3,6 +3,10 @@ import CodeExample from './components/CodeExample.vue'
 </script>
 
 <template>
+  <h1>
+    @scalar/snippetz
+  </h1>
+
   <div class="examples">
     <CodeExample target="undici" :request="{ url: 'https://example.com' }"/>
     <CodeExample target="undici" :request="{ url: 'https://example.com', method: 'POST' }"/>
@@ -17,6 +21,10 @@ import CodeExample from './components/CodeExample.vue'
 </template>
 
 <style scoped>
+h1 {
+  font-size: 1.4rem;
+  margin: 2rem 0;
+}
 .examples {
   display: flex;
   flex-direction: column;
