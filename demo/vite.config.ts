@@ -1,15 +1,10 @@
 import { defineConfig } from 'vite'
-import meta from './package.json'
+import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  build: {
-    lib: {
-      entry: 'src/index.ts',
-      name: meta.name,
-      fileName: 'index',
-    },
-  },
+  plugins: [vue()],
   resolve: {
     alias: [
       // Resolve the uncompiled source code for all @scalar packages.
