@@ -28,14 +28,15 @@ onMounted(async () => {
 
 <style scoped>
 .code-block {
-  border: 1px solid #999;
+  border: 2px solid #343a40;
   border-radius: 4px;
+  font-family: monospace;
 }
 
 .title {
-  background: #999;
-  color: #333;
-  padding: 0.25rem 1rem;
+  background: #343a40;
+  color: #868e96;
+  padding: 0.5rem 1rem calc(0.5rem + 2px);
 }
 
 .container {
@@ -47,6 +48,7 @@ pre {
 }
 
 pre code {
+  color: #adb5bd;
   display: block;
   background: none;
   white-space: pre;

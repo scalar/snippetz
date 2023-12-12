@@ -5,9 +5,11 @@
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",
     "test": "vitest",
+    "test:ui": "vitest --ui",
     "types:check": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
+    "@vitest/ui": "^1.0.4",
     "@types/har-format": "^1.2.15",
     "turbo": "^1.11.1",
     "typescript": "^5.2.2",
