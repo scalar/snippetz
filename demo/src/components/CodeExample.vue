@@ -2,6 +2,10 @@
 import { ref, onMounted } from 'vue'
 import { snippetz } from '@scalar/snippetz'
 import { undici } from '@scalar/snippetz-plugin-undici'
+import { getHighlighter } from 'shikiji'
+
+
+
 
 const props = defineProps<{
   target: 'undici',
@@ -9,9 +13,21 @@ const props = defineProps<{
 }>()
 
 const code = ref('')
+const highlightedCode = ref('')
 
 onMounted(async () => {
-  code.value = await snippetz().get(undici(props.request))
+  const source = undici(props.request)
+  code.value = await snippetz().get(source)
+
+  const shiki = await getHighlighter({
+    themes: ['nord'],
+    langs: [source.target],
+  })
+
+  await shiki.loadTheme('vitesse-dark')
+  await shiki.loadLanguage(source.target)
+
+  highlightedCode.value = shiki.codeToHtml(code.value, { lang: source.target, theme: 'vitesse-dark' })
 })
 </script>
 
@@ -20,9 +36,7 @@ onMounted(async () => {
     <div class="title">
       {{ target }}
     </div>
-    <div class="container">
-      <pre><code>{{ code }}</code></pre>
-    </div>
+    <div class="container" v-html="highlightedCode" />
   </div>
 </template>
 
@@ -40,7 +54,8 @@ onMounted(async () => {
 }
 
 .container {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #121212;
 }
 
 pre {

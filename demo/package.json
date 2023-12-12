@@ -9,12 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.3.11",
     "@scalar/snippetz": "workspace:*",
-    "@scalar/snippetz-plugin-undici": "workspace:*"
+    "@scalar/snippetz-plugin-undici": "workspace:*",
+    "vue": "^3.3.11"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
+    "shikiji": "^0.8.4",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vue-tsc": "^1.8.25"

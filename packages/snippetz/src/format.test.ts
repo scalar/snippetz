@@ -5,7 +5,7 @@ describe('format', async () => {
   it('formats basic JS', async () => {
     expect(
       await format({
-        target: 'js',
+        target: 'javascript',
         code: 'const    answer=42',
       })
     ).toBe(`const answer = 42\n`)

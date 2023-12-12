@@ -1,4 +1,5 @@
 import type { Request } from 'har-format'
+import type { Source } from '@scalar/snippetz'
 
 /** Helper function to map { name: 'foo', value: 'bar' } to { foo: 'bar' } */
 function arrayToObject(items: any) {
@@ -8,7 +9,7 @@ function arrayToObject(items: any) {
   }, {})
 }
 
-export function undici(request: Partial<Request>) {
+export function undici(request: Partial<Request>): Source {
   // Defaults
   const normalizedRequest = {
     method: 'GET',
@@ -84,7 +85,7 @@ const { statusCode, headers, body } = await request("${normalizedRequest.url}${q
 
   // Create an AST
   return {
-    target: 'js',
+    target: 'javascript',
     code,
   }
 }

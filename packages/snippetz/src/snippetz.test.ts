@@ -4,7 +4,7 @@ import { snippetz } from './snippetz'
 describe('snippetz', async () => {
   it('formats basic JS', async () => {
     const snippet = await snippetz().get({
-      target: 'js',
+      target: 'javascript',
       code: 'const    answer=42',
     })
 

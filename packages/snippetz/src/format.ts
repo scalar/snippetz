@@ -5,7 +5,7 @@ import * as prettier from 'prettier/standalone'
 export async function format(source: any) {
   const target = source.target
 
-  if (target === 'js') {
+  if (target === 'javascript') {
     return await prettier.format(source.code, {
       semi: false,
       parser: 'babel',
