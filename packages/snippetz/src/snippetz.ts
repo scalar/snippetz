@@ -1,4 +1,3 @@
-import { format } from './format'
 import type { Source } from './types'
 
 export type SnippetOptions = {}
@@ -13,7 +12,7 @@ export function snippetz() {
         ...options,
       }
 
-      return format(source)
+      return source.code
     },
   }
 }

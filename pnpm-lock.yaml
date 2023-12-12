@@ -47,10 +47,6 @@ importers:
         version: 1.8.25(typescript@5.3.3)
 
   packages/snippetz:
-    dependencies:
-      prettier:
-        specifier: ^3.1.1
-        version: 3.1.1
     devDependencies:
       '@vitest/ui':
         specifier: ^1.0.4
@@ -70,9 +66,6 @@ importers:
       '@scalar/snippetz':
         specifier: workspace:*
         version: link:../snippetz
-      prettier:
-        specifier: ^3.1.1
-        version: 3.1.1
     devDependencies:
       '@types/har-format':
         specifier: ^1.2.15
@@ -2415,12 +2408,6 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
-
-  /prettier@3.1.1:
-    resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: false
 
   /pretty-format@29.7.0:
     resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}

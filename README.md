@@ -51,17 +51,6 @@ const source = undici({
 console.log(source.code)
 ```
 
-### Format the source code
-
-```js
-import { format } from '@scalar/snippetz'
-
-console.log(format({
-  target: 'js',
-  code: `const   answer= 42 ;`
-}))
-```
-
 ## Community
 
 We are API nerds. You too? Let’s chat on Discord: <https://discord.gg/8HeZcRGPFS>

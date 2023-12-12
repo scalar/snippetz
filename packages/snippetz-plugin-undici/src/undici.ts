@@ -9,6 +9,12 @@ function arrayToObject(items: any) {
   }, {})
 }
 
+export function formatAsJavaScriptObject(data: Record<string, any>) {
+  return JSON.stringify(data, null, 2)
+    .replaceAll(`'`, `\'`)
+    .replaceAll(`"`, `'`)
+}
+
 export function undici(request: Partial<Request>): Source {
   // Defaults
   const normalizedRequest = {
@@ -73,14 +79,13 @@ export function undici(request: Partial<Request>): Source {
 
   // Transform to JSON
   const jsonOptions = Object.keys(options).length
-    ? `, ${JSON.stringify(options, null, 2)}`
+    ? `, ${formatAsJavaScriptObject(options)}`
     : ''
 
   // Code Template
-  const code = `import { request } from "undici"
+  const code = `import { request } from 'undici'
 
-const { statusCode, headers, body } = await request("${normalizedRequest.url}${queryString}"${jsonOptions})
-
+const { statusCode, headers, body } = await request('${normalizedRequest.url}${queryString}'${jsonOptions})
 `
 
   // Create an AST
