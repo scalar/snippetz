@@ -49,6 +49,12 @@ const source = undici({
 })
 
 console.log(source.code)
+
+// import { request } from 'undici'
+
+// const { statusCode, headers, body } = await request(
+//   'url': 'https://example.com',
+// )
 ```
 
 ## Community

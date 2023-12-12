@@ -30,7 +30,7 @@ const { statusCode, headers, body } = await request('https://example.com')
     expect(source.code).toBe(`import { request } from 'undici'
 
 const { statusCode, headers, body } = await request('https://example.com', {
-  'method': 'POST'
+  method: 'POST'
 })
 `)
   })
@@ -49,7 +49,7 @@ const { statusCode, headers, body } = await request('https://example.com', {
     expect(source.code).toBe(`import { request } from 'undici'
 
 const { statusCode, headers, body } = await request('https://example.com', {
-  'headers': {
+  headers: {
     'Content-Type': 'application/json'
   }
 })
@@ -76,11 +76,11 @@ const { statusCode, headers, body } = await request('https://example.com', {
     expect(source.code).toBe(`import { request } from 'undici'
 
 const { statusCode, headers, body } = await request('https://example.com', {
-  'headers': {
+  headers: {
     'Content-Type': 'application/json'
   },
-  'body': {
-    'hello': 'world'
+  body: {
+    hello: 'world'
   }
 })
 `)
@@ -110,7 +110,7 @@ const { statusCode, headers, body } = await request('https://example.com', {
     expect(source.code).toBe(`import { request } from 'undici'
 
 const { statusCode, headers, body } = await request('https://example.com?foo=bar&bar=foo', {
-  'headers': {
+  headers: {
     'Content-Type': 'application/json'
   }
 })
@@ -135,7 +135,7 @@ const { statusCode, headers, body } = await request('https://example.com?foo=bar
     expect(source.code).toBe(`import { request } from 'undici'
 
 const { statusCode, headers, body } = await request('https://example.com', {
-  'headers': {
+  headers: {
     'Set-Cookie': 'foo=bar; bar=foo'
   }
 })
