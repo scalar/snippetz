@@ -4,9 +4,6 @@ import { snippetz } from '@scalar/snippetz'
 import { undici } from '@scalar/snippetz-plugin-undici'
 import { getHighlighter } from 'shikiji'
 
-
-
-
 const props = defineProps<{
   target: 'undici',
   request: any,
@@ -53,13 +50,9 @@ onMounted(async () => {
   padding: 0.5rem 1rem calc(0.5rem + 2px);
 }
 
-.container {
-  padding: 0.5rem 1rem;
-  background-color: #121212;
-}
-
-pre {
+.container >>> pre {
   margin: 0;
+  padding: 1rem;
 }
 
 pre code {
