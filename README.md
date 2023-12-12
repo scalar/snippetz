@@ -32,7 +32,7 @@ const snippet = snippetz().get(
 /* Output */
 
 // import { request } from 'undici'
-// const { statusCode, headers, body } = await request(
+// const { statusCode, body } = await request(
 //   'https://example.com',
 // )
 ```
@@ -52,7 +52,7 @@ console.log(source.code)
 
 // import { request } from 'undici'
 
-// const { statusCode, headers, body } = await request(
+// const { statusCode, body } = await request(
 //   'url': 'https://example.com',
 // )
 ```

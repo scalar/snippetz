@@ -17,7 +17,7 @@ describe('undici', () => {
 
     expect(source.code).toBe(`import { request } from 'undici'
 
-const { statusCode, headers, body } = await request('https://example.com')
+const { statusCode, body } = await request('https://example.com')
 `)
   })
 
@@ -29,7 +29,7 @@ const { statusCode, headers, body } = await request('https://example.com')
 
     expect(source.code).toBe(`import { request } from 'undici'
 
-const { statusCode, headers, body } = await request('https://example.com', {
+const { statusCode, body } = await request('https://example.com', {
   method: 'POST'
 })
 `)
@@ -48,7 +48,7 @@ const { statusCode, headers, body } = await request('https://example.com', {
 
     expect(source.code).toBe(`import { request } from 'undici'
 
-const { statusCode, headers, body } = await request('https://example.com', {
+const { statusCode, body } = await request('https://example.com', {
   headers: {
     'Content-Type': 'application/json'
   }
@@ -75,7 +75,7 @@ const { statusCode, headers, body } = await request('https://example.com', {
 
     expect(source.code).toBe(`import { request } from 'undici'
 
-const { statusCode, headers, body } = await request('https://example.com', {
+const { statusCode, body } = await request('https://example.com', {
   headers: {
     'Content-Type': 'application/json'
   },
@@ -109,7 +109,7 @@ const { statusCode, headers, body } = await request('https://example.com', {
 
     expect(source.code).toBe(`import { request } from 'undici'
 
-const { statusCode, headers, body } = await request('https://example.com?foo=bar&bar=foo', {
+const { statusCode, body } = await request('https://example.com?foo=bar&bar=foo', {
   headers: {
     'Content-Type': 'application/json'
   }
@@ -134,7 +134,7 @@ const { statusCode, headers, body } = await request('https://example.com?foo=bar
 
     expect(source.code).toBe(`import { request } from 'undici'
 
-const { statusCode, headers, body } = await request('https://example.com', {
+const { statusCode, body } = await request('https://example.com', {
   headers: {
     'Set-Cookie': 'foo=bar; bar=foo'
   }

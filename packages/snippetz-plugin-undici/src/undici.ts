@@ -114,7 +114,7 @@ export function undici(request: Partial<Request>): Source {
   // Code Template
   const code = `import { request } from 'undici'
 
-const { statusCode, headers, body } = await request('${normalizedRequest.url}${queryString}'${jsonOptions})
+const { statusCode, body } = await request('${normalizedRequest.url}${queryString}'${jsonOptions})
 `
 
   // Create an AST
