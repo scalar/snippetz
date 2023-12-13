@@ -66,7 +66,7 @@ const snippet = snippetz().hasPlugin('node', 'undici')
 // true
 ```
 
-### Generate a snippet
+### Use just one plugin
 
 ```js
 import { undici } from '@scalar/snippetz-plugin-undici'
