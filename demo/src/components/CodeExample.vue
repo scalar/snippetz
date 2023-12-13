@@ -37,9 +37,12 @@ const snippet = snippetz().print('${props.target}', '${props.client}', ${objectT
 <template>
   <div class="code-block">
     <div class="title">
-      {{ target }}/{{ client }}
+      input
     </div>
     <div class="configuration" v-html="highlightedRequest" />
+    <div class="divider">
+      output
+    </div>
     <div class="container" v-html="highlightedCode" />
   </div>
 </template>
@@ -57,7 +60,14 @@ const snippet = snippetz().print('${props.target}', '${props.client}', ${objectT
 .title {
   background: #343a40;
   color: #868e96;
-  padding: 0.5rem 1rem calc(0.5rem + 2px);
+  padding: 0.75em 1rem calc(0.75em + 2px);
+}
+
+.divider {
+  color: #868e96;
+  background: #343a40;
+  padding: 0.75em 1rem calc(0.75em + 2px);
+  border-bottom: 2px solid #343a40;
 }
 
 :deep(.configuration) pre,
