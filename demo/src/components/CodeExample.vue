@@ -16,7 +16,7 @@ const highlightedRequest = ref('')
 
 onMounted(async () => {
   // Code
-  code.value = snippetz().print('node', props.client, props.request) ?? ''
+  code.value = snippetz().print(props.target, props.client, props.request) ?? ''
 
   // Syntax highlighting for the code
   const shiki = await getHighlighter({
@@ -27,7 +27,7 @@ onMounted(async () => {
   highlightedCode.value = shiki.codeToHtml(code.value, { lang: 'javascript', theme: 'vitesse-dark' })
   highlightedRequest.value = shiki.codeToHtml(`import { snippetz } from '@scalar/snippetz'
 
-const snippet = snippetz().print('node', ${props.client}, ${objectToString(props.request)}`, {
+const snippet = snippetz().print('${props.target}', '${props.client}', ${objectToString(props.request)})`, {
     lang: 'javascript',
     theme: 'vitesse-dark'
   })
