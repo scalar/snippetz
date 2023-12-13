@@ -1,6 +1,6 @@
 {
   "name": "@scalar/snippetz",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",
@@ -14,8 +14,7 @@
     "vite": "^5.0.0",
     "vitest": "^1.0.4"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "files": [
     "dist"
   ],
