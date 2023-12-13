@@ -1,5 +1,13 @@
 # @scalar/snippetz-plugin-undici
 
+## 0.1.2
+
+### Patch Changes
+
+- eca1c31: chore: add a basic plugin architecture
+- Updated dependencies [92b5028]
+  - @scalar/snippetz-core@0.1.0
+
 ## 0.1.1
 
 ### Patch Changes
