@@ -85,7 +85,7 @@ export function undici(request: Partial<Request>): Source {
   }
 
   // Cookies
-  if (normalizedRequest.cookies) {
+  if (normalizedRequest.cookies?.length) {
     options.headers = options.headers || {}
 
     normalizedRequest.cookies.forEach((cookie) => {

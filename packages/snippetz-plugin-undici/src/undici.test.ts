@@ -113,7 +113,7 @@ const { statusCode, body } = await request('https://example.com', {
 const { statusCode, body } = await request('https://example.com?foo=bar&bar=foo')`)
   })
 
-  it('has the path', () => {
+  it('has cookies', () => {
     const source = undici({
       url: 'https://example.com',
       cookies: [
@@ -135,5 +135,16 @@ const { statusCode, body } = await request('https://example.com', {
     'Set-Cookie': 'foo=bar; bar=foo'
   }
 })`)
+  })
+
+  it('doesn’t add empty cookies', () => {
+    const source = undici({
+      url: 'https://example.com',
+      cookies: [],
+    })
+
+    expect(source.code).toBe(`import { request } from 'undici'
+
+const { statusCode, body } = await request('https://example.com')`)
   })
 })
