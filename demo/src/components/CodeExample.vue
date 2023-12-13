@@ -57,8 +57,8 @@ onMounted(async () => {
   padding: 0.5rem 1rem calc(0.5rem + 2px);
 }
 
-.configuration >>> pre,
-.container >>> pre {
+:deep(.configuration) pre,
+:deep(.container) pre {
   margin: 0;
   padding: 0.75rem;
 }
