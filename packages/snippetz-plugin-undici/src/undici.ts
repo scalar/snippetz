@@ -10,38 +10,45 @@ function arrayToObject(items: any) {
 }
 
 function isKeyNeedsQuotes(key: string) {
-  return /\s|-/.test(key);
+  return /\s|-/.test(key)
 }
 
 export function objectToString(obj: Record<string, any>, indent = 0): string {
-  let parts = [];
-  let indentation = ' '.repeat(indent);
-  let innerIndentation = ' '.repeat(indent + 2);
+  let parts = []
+  let indentation = ' '.repeat(indent)
+  let innerIndentation = ' '.repeat(indent + 2)
 
   for (const [key, value] of Object.entries(obj)) {
-    let formattedKey = isKeyNeedsQuotes(key) ? `'${key}'` : key;
+    let formattedKey = isKeyNeedsQuotes(key) ? `'${key}'` : key
 
     if (Array.isArray(value)) {
-      const arrayString = value.map(item => {
-        if (typeof item === 'string') {
-            return `'${item}'`;
-        } else if (item && typeof item === 'object') {
-            return objectToString(item, indent + 2);
-        } else {
-            return item;
-        }
-      }).join(`, ${innerIndentation}`);
-      parts.push(`${innerIndentation}${formattedKey}: [${arrayString}]`);
+      const arrayString = value
+        .map((item) => {
+          if (typeof item === 'string') {
+            return `'${item}'`
+          } else if (item && typeof item === 'object') {
+            return objectToString(item, indent + 2)
+          } else {
+            return item
+          }
+        })
+        .join(`, ${innerIndentation}`)
+      parts.push(`${innerIndentation}${formattedKey}: [${arrayString}]`)
     } else if (value && typeof value === 'object') {
-      parts.push(`${innerIndentation}${formattedKey}: ${objectToString(value, indent + 2)}`);
+      parts.push(
+        `${innerIndentation}${formattedKey}: ${objectToString(
+          value,
+          indent + 2
+        )}`
+      )
     } else if (typeof value === 'string') {
-      parts.push(`${innerIndentation}${formattedKey}: '${value}'`);
+      parts.push(`${innerIndentation}${formattedKey}: '${value}'`)
     } else {
-      parts.push(`${innerIndentation}${formattedKey}: ${value}`);
+      parts.push(`${innerIndentation}${formattedKey}: ${value}`)
     }
   }
 
-  return `{\n${parts.join(',\n')}\n${indentation}}`;
+  return `{\n${parts.join(',\n')}\n${indentation}}`
 }
 
 export function undici(request: Partial<Request>): Source {
@@ -69,7 +76,7 @@ export function undici(request: Partial<Request>): Source {
   const queryString = searchParams.size ? `?${searchParams.toString()}` : ''
 
   // Headers
-  if (normalizedRequest.headers) {
+  if (normalizedRequest.headers?.length) {
     options.headers = {}
 
     normalizedRequest.headers.forEach((header) => {

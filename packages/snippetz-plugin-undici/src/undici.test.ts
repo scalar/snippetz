@@ -17,8 +17,7 @@ describe('undici', () => {
 
     expect(source.code).toBe(`import { request } from 'undici'
 
-const { statusCode, body } = await request('https://example.com')
-`)
+const { statusCode, body } = await request('https://example.com')`)
   })
 
   it('returns a POST request', () => {
@@ -31,8 +30,7 @@ const { statusCode, body } = await request('https://example.com')
 
 const { statusCode, body } = await request('https://example.com', {
   method: 'POST'
-})
-`)
+})`)
   })
 
   it('has headers', () => {
@@ -52,8 +50,18 @@ const { statusCode, body } = await request('https://example.com', {
   headers: {
     'Content-Type': 'application/json'
   }
-})
-`)
+})`)
+  })
+
+  it('doesn’t add empty headers', () => {
+    const source = undici({
+      url: 'https://example.com',
+      headers: [],
+    })
+
+    expect(source.code).toBe(`import { request } from 'undici'
+
+const { statusCode, body } = await request('https://example.com')`)
   })
 
   it('has JSON body', () => {
@@ -82,19 +90,12 @@ const { statusCode, body } = await request('https://example.com', {
   body: {
     hello: 'world'
   }
-})
-`)
+})`)
   })
 
   it('has query string', () => {
     const source = undici({
       url: 'https://example.com',
-      headers: [
-        {
-          name: 'Content-Type',
-          value: 'application/json',
-        },
-      ],
       queryString: [
         {
           name: 'foo',
@@ -109,12 +110,7 @@ const { statusCode, body } = await request('https://example.com', {
 
     expect(source.code).toBe(`import { request } from 'undici'
 
-const { statusCode, body } = await request('https://example.com?foo=bar&bar=foo', {
-  headers: {
-    'Content-Type': 'application/json'
-  }
-})
-`)
+const { statusCode, body } = await request('https://example.com?foo=bar&bar=foo')`)
   })
 
   it('has the path', () => {
@@ -138,7 +134,6 @@ const { statusCode, body } = await request('https://example.com', {
   headers: {
     'Set-Cookie': 'foo=bar; bar=foo'
   }
-})
-`)
+})`)
   })
 })
