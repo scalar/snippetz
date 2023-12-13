@@ -1,4 +1,4 @@
-# @scalar/snippetz-plugin-undici
+# @scalar/snippetz-plugin-node-undici
 
 ## 0.1.2
 

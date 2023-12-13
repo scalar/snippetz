@@ -3,7 +3,7 @@ import {
   type Request,
   arrayToObject,
   objectToString,
-} from '../../snippetz-core/dist'
+} from '@scalar/snippetz-core'
 
 export function undici(request?: Partial<Request>): Source {
   // Defaults

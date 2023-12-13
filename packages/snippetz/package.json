@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@scalar/snippetz-core": "workspace:*",
-    "@scalar/snippetz-plugin-undici": "workspace:*"
+    "@scalar/snippetz-plugin-node-undici": "workspace:*"
   },
   "files": [
     "dist"

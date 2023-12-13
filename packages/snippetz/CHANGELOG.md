@@ -8,7 +8,7 @@
 - Updated dependencies [92b5028]
 - Updated dependencies [eca1c31]
   - @scalar/snippetz-core@0.1.0
-  - @scalar/snippetz-plugin-undici@0.1.2
+  - @scalar/snippetz-plugin-node-undici@0.1.2
 
 ## 0.1.1
 

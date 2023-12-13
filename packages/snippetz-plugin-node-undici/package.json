@@ -1,5 +1,5 @@
 {
-  "name": "@scalar/snippetz-plugin-undici",
+  "name": "@scalar/snippetz-plugin-node-undici",
   "version": "0.1.2",
   "type": "module",
   "scripts": {

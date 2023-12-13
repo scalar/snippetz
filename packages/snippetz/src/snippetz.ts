@@ -1,5 +1,5 @@
-import type { TargetId, ClientId, Request } from '../../snippetz-core/dist'
-import { undici } from '@scalar/snippetz-plugin-undici'
+import type { TargetId, ClientId, Request } from '@scalar/snippetz-core'
+import { undici } from '@scalar/snippetz-plugin-node-undici'
 
 export function snippetz() {
   const plugins = [undici]
