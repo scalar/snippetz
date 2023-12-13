@@ -14,7 +14,7 @@ A modern way to generate code examples for different languages.
 ## Installation
 
 ```
-npm install @scalar/snippetz @scalar/snippetz-plugin-undici
+npm install @scalar/snippetz
 ```
 
 ## Usage
