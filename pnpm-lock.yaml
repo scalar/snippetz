@@ -47,6 +47,10 @@ importers:
         version: 1.8.25(typescript@5.3.3)
 
   packages/core:
+    dependencies:
+      '@types/har-format':
+        specifier: ^1.2.15
+        version: 1.2.15
     devDependencies:
       '@vitest/ui':
         specifier: ^1.0.4
@@ -89,9 +93,6 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
-      '@types/har-format':
-        specifier: ^1.2.15
-        version: 1.2.15
       '@vitest/ui':
         specifier: ^1.0.4
         version: 1.0.4(vitest@1.0.4)
@@ -703,7 +704,7 @@ packages:
 
   /@types/har-format@1.2.15:
     resolution: {integrity: sha512-RpQH4rXLuvTXKR0zqHq3go0RVXYv/YVqv4TnPH95VbwUxZdQlK1EtcMvQvMpDngHbt13Csh9Z4qT9AbkiQH5BA==}
-    dev: true
+    dev: false
 
   /@types/hast@3.0.3:
     resolution: {integrity: sha512-2fYGlaDy/qyLlhidX42wAH0KBi2TCjKMH8CHmBXgRlJ3Y+OXTiqsPQ6IWarZKwF1JoUcAJdPogv1d4b0COTpmQ==}

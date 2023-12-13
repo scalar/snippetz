@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "@vitest/ui": "^1.0.4",
-    "@types/har-format": "^1.2.15",
     "turbo": "^1.11.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",

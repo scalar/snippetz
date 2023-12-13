@@ -21,23 +21,50 @@ npm install @scalar/snippetz @scalar/snippetz-plugin-undici
 
 ```js
 import { snippetz } from '@scalar/snippetz'
-import { undici } from '@scalar/snippetz-plugin-undici'
 
-const snippet = snippetz().get(
-  undici({
-    url: 'https://example.com'
-  })
-)
+const snippet = snippetz().print('node', 'undici', {
+  url: 'https://example.com'
+})
 
 /* Output */
 
 // import { request } from 'undici'
+//
 // const { statusCode, body } = await request(
 //   'https://example.com',
 // )
 ```
 
 ## API
+
+### Get all plugins
+
+```js
+import { snippetz } from '@scalar/snippetz'
+
+const snippet = snippetz().plugins()
+
+/* Output */
+
+// [
+//   {
+//     target: 'node',
+//     client: 'undici',
+//   }
+// ]
+```
+
+### Check if a plugin is loaded
+
+```js
+import { snippetz } from '@scalar/snippetz'
+
+const snippet = snippetz().hasPlugin('node', 'undici')
+
+/* Output */
+
+// true
+```
 
 ### Generate a snippet
 
