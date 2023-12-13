@@ -1,5 +1,5 @@
 import type { Request } from 'har-format'
-import type { Source } from '@scalar/snippetz'
+import type { Source } from '@scalar/snippetz-core'
 
 /** Helper function to map { name: 'foo', value: 'bar' } to { foo: 'bar' } */
 function arrayToObject(items: any) {
@@ -51,7 +51,7 @@ export function objectToString(obj: Record<string, any>, indent = 0): string {
   return `{\n${parts.join(',\n')}\n${indentation}}`
 }
 
-export function undici(request: Partial<Request>): Source {
+export function undici(request?: Partial<Request>): Source {
   // Defaults
   const normalizedRequest = {
     method: 'GET',
@@ -125,7 +125,8 @@ const { statusCode, body } = await request('${normalizedRequest.url}${queryStrin
 
   // Create an AST
   return {
-    target: 'javascript',
+    target: 'node',
+    client: 'undici',
     code,
   }
 }

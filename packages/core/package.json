@@ -1,23 +1,20 @@
 {
-  "name": "@scalar/snippetz-plugin-undici",
-  "version": "0.1.1",
+  "name": "@scalar/snippetz-core",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
+    "_test": "vitest",
+    "_test:ui": "vitest --ui",
     "types:check": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
     "@vitest/ui": "^1.0.4",
-    "@types/har-format": "^1.2.15",
-    "turbo": "^1.11.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vitest": "^1.0.4"
   },
   "dependencies": {
-    "@scalar/snippetz-core": "workspace:*"
   },
   "files": [
     "dist"

@@ -46,7 +46,29 @@ importers:
         specifier: ^1.8.25
         version: 1.8.25(typescript@5.3.3)
 
+  packages/core:
+    devDependencies:
+      '@vitest/ui':
+        specifier: ^1.0.4
+        version: 1.0.4(vitest@1.0.4)
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.3
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.8
+      vitest:
+        specifier: ^1.0.4
+        version: 1.0.4(@vitest/ui@1.0.4)
+
   packages/snippetz:
+    dependencies:
+      '@scalar/snippetz-core':
+        specifier: workspace:*
+        version: link:../core
+      '@scalar/snippetz-plugin-undici':
+        specifier: workspace:*
+        version: link:../snippetz-plugin-undici
     devDependencies:
       '@vitest/ui':
         specifier: ^1.0.4
@@ -63,9 +85,9 @@ importers:
 
   packages/snippetz-plugin-undici:
     dependencies:
-      '@scalar/snippetz':
+      '@scalar/snippetz-core':
         specifier: workspace:*
-        version: link:../snippetz
+        version: link:../core
     devDependencies:
       '@types/har-format':
         specifier: ^1.2.15
