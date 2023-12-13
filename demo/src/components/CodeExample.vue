@@ -11,20 +11,23 @@ const props = defineProps<{
 
 const code = ref('')
 const highlightedCode = ref('')
+const highlightedRequest = ref('')
 
 onMounted(async () => {
+  // Code
   const source = undici(props.request)
-  code.value = await snippetz().get(source)
+  code.value = snippetz().get(source)
 
+  // Syntax highlighting for the code
   const shiki = await getHighlighter({
     themes: ['nord'],
-    langs: [source.target],
+    langs: [source.target, 'json'],
   })
 
   await shiki.loadTheme('vitesse-dark')
-  await shiki.loadLanguage(source.target)
 
   highlightedCode.value = shiki.codeToHtml(code.value, { lang: source.target, theme: 'vitesse-dark' })
+  highlightedRequest.value = shiki.codeToHtml(JSON.stringify(props.request, null, 2), { lang: 'json', theme: 'vitesse-dark' })
 })
 </script>
 
@@ -33,6 +36,7 @@ onMounted(async () => {
     <div class="title">
       {{ target }}
     </div>
+    <div class="configuration" v-html="highlightedRequest" />
     <div class="container" v-html="highlightedCode" />
   </div>
 </template>
@@ -43,6 +47,9 @@ onMounted(async () => {
   border-radius: 4px;
   font-family: monospace;
 }
+.configuration {
+  border-bottom: 2px solid #343a40;
+}
 
 .title {
   background: #343a40;
@@ -50,9 +57,10 @@ onMounted(async () => {
   padding: 0.5rem 1rem calc(0.5rem + 2px);
 }
 
+.configuration >>> pre,
 .container >>> pre {
   margin: 0;
-  padding: 1rem;
+  padding: 0.75rem;
 }
 
 pre code {
