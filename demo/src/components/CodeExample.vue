@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { snippetz } from '@scalar/snippetz'
-import { undici } from '@scalar/snippetz-plugin-undici'
 import { getHighlighter } from 'shikiji'
 
 const props = defineProps<{
@@ -15,18 +14,17 @@ const highlightedRequest = ref('')
 
 onMounted(async () => {
   // Code
-  const source = undici(props.request)
-  code.value = snippetz().get(source)
+  code.value = snippetz().print('node', 'undici', props.request) ?? ''
 
   // Syntax highlighting for the code
   const shiki = await getHighlighter({
     themes: ['nord'],
-    langs: [source.target, 'json'],
+    langs: ['javascript', 'json'],
   })
 
   await shiki.loadTheme('vitesse-dark')
 
-  highlightedCode.value = shiki.codeToHtml(code.value, { lang: source.target, theme: 'vitesse-dark' })
+  highlightedCode.value = shiki.codeToHtml(code.value, { lang: 'javascript', theme: 'vitesse-dark' })
   highlightedRequest.value = shiki.codeToHtml(JSON.stringify(props.request, null, 2), { lang: 'json', theme: 'vitesse-dark' })
 })
 </script>

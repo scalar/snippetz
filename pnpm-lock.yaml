@@ -23,9 +23,6 @@ importers:
       '@scalar/snippetz':
         specifier: workspace:*
         version: link:../packages/snippetz
-      '@scalar/snippetz-plugin-undici':
-        specifier: workspace:*
-        version: link:../packages/snippetz-plugin-undici
       vue:
         specifier: ^3.3.11
         version: 3.3.11(typescript@5.3.3)
@@ -46,7 +43,29 @@ importers:
         specifier: ^1.8.25
         version: 1.8.25(typescript@5.3.3)
 
-  packages/core:
+  packages/snippetz:
+    dependencies:
+      '@scalar/snippetz-core':
+        specifier: workspace:*
+        version: link:../snippetz-core
+      '@scalar/snippetz-plugin-undici':
+        specifier: workspace:*
+        version: link:../snippetz-plugin-undici
+    devDependencies:
+      '@vitest/ui':
+        specifier: ^1.0.4
+        version: 1.0.4(vitest@1.0.4)
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.3
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.7
+      vitest:
+        specifier: ^1.0.4
+        version: 1.0.4(@vitest/ui@1.0.4)
+
+  packages/snippetz-core:
     dependencies:
       '@types/har-format':
         specifier: ^1.2.15
@@ -65,33 +84,11 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(@vitest/ui@1.0.4)
 
-  packages/snippetz:
-    dependencies:
-      '@scalar/snippetz-core':
-        specifier: workspace:*
-        version: link:../core
-      '@scalar/snippetz-plugin-undici':
-        specifier: workspace:*
-        version: link:../snippetz-plugin-undici
-    devDependencies:
-      '@vitest/ui':
-        specifier: ^1.0.4
-        version: 1.0.4(vitest@1.0.4)
-      typescript:
-        specifier: ^5.2.2
-        version: 5.3.3
-      vite:
-        specifier: ^5.0.0
-        version: 5.0.7
-      vitest:
-        specifier: ^1.0.4
-        version: 1.0.4(@vitest/ui@1.0.4)
-
   packages/snippetz-plugin-undici:
     dependencies:
       '@scalar/snippetz-core':
         specifier: workspace:*
-        version: link:../core
+        version: link:../snippetz-core
     devDependencies:
       '@vitest/ui':
         specifier: ^1.0.4
