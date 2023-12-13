@@ -17,6 +17,20 @@ import CodeExample from './components/CodeExample.vue'
       }
     ]
     }"/>
+    <CodeExample target="undici" :request="{
+      url: 'https://example.com',
+      method: 'POST',
+      headers: [
+        {
+          name: 'Content-Type',
+          value: 'application/json; charset=utf-8',
+        },
+      ],
+      postData: {
+        mimeType: 'application/json',
+        text: JSON.stringify({ hello: 'world' })
+      }
+    }"/>
   </div>
 </template>
 
