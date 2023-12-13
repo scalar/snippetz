@@ -8,16 +8,16 @@ import CodeExample from './components/CodeExample.vue'
   </h1>
 
   <div class="examples">
-    <CodeExample target="undici" :request="{ url: 'https://example.com' }"/>
-    <CodeExample target="undici" :request="{ url: 'https://example.com', method: 'POST' }"/>
-    <CodeExample target="undici" :request="{ url: 'https://example.com', method: 'POST', headers: [
+    <CodeExample target="node" client="undici" :request="{ url: 'https://example.com' }"/>
+    <CodeExample target="node" client="undici" :request="{ url: 'https://example.com', method: 'POST' }"/>
+    <CodeExample target="node" client="undici" :request="{ url: 'https://example.com', method: 'POST', headers: [
       {
         name: 'Content-Type',
         value: 'application/json'
       }
     ]
     }"/>
-    <CodeExample target="undici" :request="{
+    <CodeExample target="node" client="undici" :request="{
       url: 'https://example.com',
       method: 'POST',
       headers: [

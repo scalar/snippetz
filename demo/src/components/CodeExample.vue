@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { snippetz } from '@scalar/snippetz'
+import { objectToString } from '@scalar/snippetz-core'
 import { getHighlighter } from 'shikiji'
 
 const props = defineProps<{
-  target: 'undici',
+  target: 'node',
+  client: 'undici',
   request: any,
 }>()
 
@@ -14,25 +16,28 @@ const highlightedRequest = ref('')
 
 onMounted(async () => {
   // Code
-  code.value = snippetz().print('node', 'undici', props.request) ?? ''
+  code.value = snippetz().print('node', props.client, props.request) ?? ''
 
   // Syntax highlighting for the code
   const shiki = await getHighlighter({
-    themes: ['nord'],
-    langs: ['javascript', 'json'],
+    themes: ['vitesse-dark'],
+    langs: ['javascript'],
   })
 
-  await shiki.loadTheme('vitesse-dark')
-
   highlightedCode.value = shiki.codeToHtml(code.value, { lang: 'javascript', theme: 'vitesse-dark' })
-  highlightedRequest.value = shiki.codeToHtml(JSON.stringify(props.request, null, 2), { lang: 'json', theme: 'vitesse-dark' })
+  highlightedRequest.value = shiki.codeToHtml(`import { snippetz } from '@scalar/snippetz'
+
+const snippet = snippetz().print('node', ${props.client}, ${objectToString(props.request)}`, {
+    lang: 'javascript',
+    theme: 'vitesse-dark'
+  })
 })
 </script>
 
 <template>
   <div class="code-block">
     <div class="title">
-      {{ target }}
+      {{ target }}/{{ client }}
     </div>
     <div class="configuration" v-html="highlightedRequest" />
     <div class="container" v-html="highlightedCode" />
