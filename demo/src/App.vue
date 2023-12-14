@@ -4,8 +4,18 @@ import CodeExample from './components/CodeExample.vue'
 
 <template>
   <h1>
-    @scalar/snippetz
+    Snippetz
   </h1>
+
+  <div class="introduction">
+    <p>
+      @scalar/snippetz is a library that generates code snippets for making HTTP requests in Node.js and the browser.
+    </p>
+  </div>
+
+  <h2>
+    Examples
+  </h2>
 
   <div class="examples">
     <CodeExample target="node" client="undici" :request="{ url: 'https://example.com' }"/>
@@ -35,13 +45,21 @@ import CodeExample from './components/CodeExample.vue'
 </template>
 
 <style scoped>
-h1 {
-  font-size: 1.4rem;
+h1, h2 {
+  font-size: 1.2rem;
   margin: 2rem 0;
+}
+.introduction {
+  margin-bottom: 2rem;
+  max-width: 500px;
+  line-height: 1.6;
+  font-size: 1.2rem;
 }
 .examples {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
 }
+
 </style>
