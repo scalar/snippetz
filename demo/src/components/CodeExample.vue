@@ -3,7 +3,6 @@ import { ref, onMounted } from 'vue'
 import { snippetz } from '@scalar/snippetz'
 import { objectToString } from '@scalar/snippetz-core'
 import { getHighlighter } from 'shikiji'
-import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
 const props = defineProps<{
   target: 'node',
@@ -26,11 +25,21 @@ onMounted(async () => {
     langs: ['javascript', 'json'],
   })
 
+  const example = `/* Snippetz */
+
+import { snippetz } from '@scalar/snippetz'
+
+const request = ${objectToString(props.request)}
+
+const snippet = snippetz().print('${props.target}', '${props.client}', request)
+
+/* Output */
+
+// ` + code.value.split(`\n`).join(`\n// `)
+
   highlightedConfiguration.value = shiki.codeToHtml(JSON.stringify(props.request, null, 2), { lang: 'json', theme: 'vitesse-dark' })
   highlightedResult.value = shiki.codeToHtml(code.value, { lang: 'javascript', theme: 'vitesse-dark' })
-  highlightedExample.value = shiki.codeToHtml(`import { snippetz } from '@scalar/snippetz'
-
-const snippet = snippetz().print('${props.target}', '${props.client}', ${objectToString(props.request)})`, {
+  highlightedExample.value = shiki.codeToHtml(example, {
     lang: 'javascript',
     theme: 'vitesse-dark'
   })
@@ -39,38 +48,9 @@ const snippet = snippetz().print('${props.target}', '${props.client}', ${objectT
 
 <template>
   <div class="code-block">
-    <TabGroup>
-      <TabList>
-        <Tab as="template" v-slot="{ selected }">
-          <button type="button" class="tab" :class="{'tab--selected': selected}">
-            Request
-          </button>
-        </Tab>
-        <Tab as="template" v-slot="{ selected }">
-          <button type="button" class="tab" :class="{'tab--selected': selected}">
-            Code
-          </button>
-        </Tab>
-        <Tab as="template" v-slot="{ selected }">
-          <button type="button" class="tab" :class="{'tab--selected': selected}">
-            Result
-          </button>
-        </Tab>
-      </TabList>
       <div class="code-block-content">
-        <TabPanels>
-          <TabPanel>
-            <div class="source" v-html="highlightedConfiguration" />
-          </TabPanel>
-          <TabPanel>
-            <div class="source" v-html="highlightedExample" />
-          </TabPanel>
-          <TabPanel>
-            <div class="source" v-html="highlightedResult" />
-          </TabPanel>
-        </TabPanels>
+        <div class="source" v-html="highlightedExample" />
       </div>
-    </TabGroup>
   </div>
 </template>
 

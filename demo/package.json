@@ -14,7 +14,6 @@
     "vue": "^3.3.11"
   },
   "devDependencies": {
-    "@headlessui/vue": "^1.7.16",
     "@vitejs/plugin-vue": "^4.5.2",
     "shikiji": "^0.8.4",
     "typescript": "^5.2.2",

@@ -30,9 +30,6 @@ importers:
         specifier: ^3.3.11
         version: 3.3.11(typescript@5.3.3)
     devDependencies:
-      '@headlessui/vue':
-        specifier: ^1.7.16
-        version: 1.7.16(vue@3.3.11)
       '@vitejs/plugin-vue':
         specifier: ^4.5.2
         version: 4.5.2(vite@5.0.8)(vue@3.3.11)
@@ -541,15 +538,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@headlessui/vue@1.7.16(vue@3.3.11):
-    resolution: {integrity: sha512-nKT+nf/q6x198SsyK54mSszaQl/z+QxtASmgMEJtpxSX2Q0OPJX0upS/9daDyiECpeAsvjkoOrm2O/6PyBQ+Qg==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      vue: ^3.2.0
-    dependencies:
-      vue: 3.3.11(typescript@5.3.3)
-    dev: true
 
   /@jest/schemas@29.6.3:
     resolution: {integrity: sha512-mo5j5X+jIZmJQveBKeS/clAueipV7KgiX1vMgCxam1RNYiqE1w62n0/tJJnHtjW8ZHcQco5gY85jA3mi0L+nSA==}
