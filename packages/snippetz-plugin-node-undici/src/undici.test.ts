@@ -87,9 +87,9 @@ const { statusCode, body } = await request('https://example.com', {
   headers: {
     'Content-Type': 'application/json'
   },
-  body: {
+  body: JSON.stringify({
     hello: 'world'
-  }
+  })
 })`)
   })
 

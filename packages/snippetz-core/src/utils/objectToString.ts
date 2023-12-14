@@ -29,7 +29,28 @@ export function objectToString(obj: Record<string, any>, indent = 0): string {
         )}`
       )
     } else if (typeof value === 'string') {
-      parts.push(`${innerIndentation}${formattedKey}: '${value}'`)
+      let formattedValue = `${value}`
+
+      if (value.startsWith('JSON.stringify')) {
+        // If it has more than one line, add indentation to the other lines
+        const lines = value.split('\n')
+
+        if (lines.length > 1) {
+          formattedValue = lines
+            .map((line, index) => {
+              if (index === 0) {
+                return line
+              }
+
+              return `${innerIndentation}${line}`
+            })
+            .join('\n')
+        }
+      } else {
+        formattedValue = `'${value}'`
+      }
+
+      parts.push(`${innerIndentation}${formattedKey}: ${formattedValue}`)
     } else {
       parts.push(`${innerIndentation}${formattedKey}: ${value}`)
     }
