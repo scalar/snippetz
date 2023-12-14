@@ -1,5 +1,15 @@
 # @scalar/snippetz-plugin-node-undici
 
+## 0.1.3
+
+### Patch Changes
+
+- 31b9be4: fix: JSON.stringify for undici body
+- 9d0c097: chore: rename snippetz-plugin-undici to snippetz-plugin-node-undici
+- Updated dependencies [31b9be4]
+- Updated dependencies [9d0c097]
+  - @scalar/snippetz-core@0.1.1
+
 ## 0.1.2
 
 ### Patch Changes
