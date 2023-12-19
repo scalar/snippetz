@@ -1,5 +1,16 @@
 # @scalar/snippetz
 
+## 0.1.4
+
+### Patch Changes
+
+- fbf21d2: feat: add snippetz-plugin-node-fetch
+- Updated dependencies [fbf21d2]
+- Updated dependencies [6d1dd21]
+  - @scalar/snippetz-core@0.1.2
+  - @scalar/snippetz-plugin-node-fetch@0.1.0
+  - @scalar/snippetz-plugin-node-undici@0.1.4
+
 ## 0.1.3
 
 ### Patch Changes
