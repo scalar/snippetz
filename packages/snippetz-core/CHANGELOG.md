@@ -1,5 +1,11 @@
 # @scalar/snippetz-core
 
+## 0.1.2
+
+### Patch Changes
+
+- fbf21d2: feat: add snippetz-plugin-node-fetch
+
 ## 0.1.1
 
 ### Patch Changes
