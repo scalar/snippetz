@@ -51,6 +51,9 @@ importers:
       '@scalar/snippetz-core':
         specifier: workspace:*
         version: link:../snippetz-core
+      '@scalar/snippetz-plugin-node-fetch':
+        specifier: workspace:*
+        version: link:../snippetz-plugin-node-fetch
       '@scalar/snippetz-plugin-node-undici':
         specifier: workspace:*
         version: link:../snippetz-plugin-node-undici
@@ -77,6 +80,28 @@ importers:
       '@vitest/ui':
         specifier: ^1.0.4
         version: 1.0.4(vitest@1.0.4)
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.3
+      vite:
+        specifier: ^5.0.0
+        version: 5.0.8
+      vitest:
+        specifier: ^1.0.4
+        version: 1.0.4(@vitest/ui@1.0.4)
+
+  packages/snippetz-plugin-node-fetch:
+    dependencies:
+      '@scalar/snippetz-core':
+        specifier: workspace:*
+        version: link:../snippetz-core
+    devDependencies:
+      '@vitest/ui':
+        specifier: ^1.0.4
+        version: 1.0.4(vitest@1.0.4)
+      turbo:
+        specifier: ^1.11.1
+        version: 1.11.1
       typescript:
         specifier: ^5.2.2
         version: 5.3.3

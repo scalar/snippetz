@@ -11,4 +11,4 @@ export type Source = {
 
 export type TargetId = 'node'
 
-export type ClientId = string
+export type ClientId = 'undici' | 'fetch'

@@ -1,8 +1,9 @@
 import type { TargetId, ClientId, Request } from '@scalar/snippetz-core'
 import { undici } from '@scalar/snippetz-plugin-node-undici'
+import { fetch } from '@scalar/snippetz-plugin-node-fetch'
 
 export function snippetz() {
-  const plugins = [undici]
+  const plugins = [undici, fetch]
 
   return {
     get(target: TargetId, client: ClientId, request: Request) {

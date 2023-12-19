@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { snippetz } from '@scalar/snippetz'
-import { objectToString } from '@scalar/snippetz-core'
+import { objectToString, type ClientId, type TargetId } from '@scalar/snippetz-core'
 import { getHighlighter } from 'shikiji'
 
 const props = defineProps<{
-  target: 'node',
-  client: 'undici',
+  target: TargetId,
+  client: ClientId,
   request: any,
 }>()
 
@@ -15,7 +15,7 @@ const highlightedConfiguration = ref('')
 const highlightedResult = ref('')
 const highlightedExample = ref('')
 
-onMounted(async () => {
+async function renderExample() {
   // Code
   code.value = snippetz().print(props.target, props.client, props.request) ?? ''
 
@@ -43,7 +43,13 @@ const snippet = snippetz().print('${props.target}', '${props.client}', request)
     lang: 'javascript',
     theme: 'vitesse-dark'
   })
+}
+
+onMounted(async () => {
+  await renderExample()
 })
+
+watch(props, renderExample)
 </script>
 
 <template>
@@ -57,7 +63,7 @@ const snippet = snippetz().print('${props.target}', '${props.client}', request)
 <style scoped>
 .code-block-content {
   border: 2px solid #343a40;
-  border-radius: 0 6px 6px 6px;
+  border-radius: 6px;
   overflow: hidden;
   font-family: monospace;
   width: 100%;
