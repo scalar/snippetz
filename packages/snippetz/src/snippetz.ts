@@ -6,18 +6,24 @@ export function snippetz() {
   const plugins = [undici, fetch]
 
   return {
-    get(target: TargetId, client: ClientId, request: Request) {
+    get(target: TargetId, client: ClientId, request: Partial<Request>) {
       const plugin = this.findPlugin(target, client)
 
       if (plugin) {
         return plugin(request)
       }
     },
-    print(target: TargetId, client: ClientId, request: Request) {
+    print(target: TargetId, client: ClientId, request: Partial<Request>) {
       return this.get(target, client, request)?.code
     },
     targets() {
-      return plugins.map((plugin) => plugin().target)
+      return (
+        plugins
+          // all targets
+          .map((plugin) => plugin().target)
+          // unique values
+          .filter((value, index, self) => self.indexOf(value) === index)
+      )
     },
     clients() {
       return plugins.map((plugin) => plugin().client)

@@ -12,12 +12,12 @@ describe('snippetz', async () => {
 const { statusCode, body } = await request('https://example.com')`)
   })
 
-  it('loads undici by default', async () => {
+  it('loads some clients by default', async () => {
     const targets = snippetz().targets()
     expect(targets).toStrictEqual(['node'])
 
     const clients = snippetz().clients()
-    expect(clients).toStrictEqual(['undici'])
+    expect(clients).toStrictEqual(['undici', 'fetch'])
   })
 })
 
@@ -29,6 +29,10 @@ describe('plugins', async () => {
       {
         target: 'node',
         client: 'undici',
+      },
+      {
+        target: 'node',
+        client: 'fetch',
       },
     ])
   })
