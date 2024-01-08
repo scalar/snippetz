@@ -1,5 +1,11 @@
 # @scalar/snippetz-core
 
+## 0.1.3
+
+### Patch Changes
+
+- e352e5a: feat: add js fetch
+
 ## 0.1.2
 
 ### Patch Changes

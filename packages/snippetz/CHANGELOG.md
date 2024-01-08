@@ -1,5 +1,17 @@
 # @scalar/snippetz
 
+## 0.1.5
+
+### Patch Changes
+
+- e352e5a: feat: add js fetch
+- Updated dependencies [0bef889]
+- Updated dependencies [e352e5a]
+  - @scalar/snippetz-plugin-js-fetch@0.1.0
+  - @scalar/snippetz-core@0.1.3
+  - @scalar/snippetz-plugin-node-fetch@0.1.1
+  - @scalar/snippetz-plugin-node-undici@0.1.5
+
 ## 0.1.4
 
 ### Patch Changes
