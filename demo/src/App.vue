@@ -4,7 +4,7 @@ import { snippetz } from '@scalar/snippetz'
 import { type ClientId, type TargetId} from '@scalar/snippetz-core'
 import { ref } from 'vue'
 
-const selectedTarget = ref<ClientId>('node')
+const selectedTarget = ref<TargetId>('node')
 const selectedClient = ref<ClientId>('undici')
 
 function selectPlugin(plugin: { target: TargetId, client: ClientId }) {
