@@ -1,9 +1,10 @@
 import type { TargetId, ClientId, Request } from '@scalar/snippetz-core'
 import { undici } from '@scalar/snippetz-plugin-node-undici'
-import { fetch } from '@scalar/snippetz-plugin-node-fetch'
+import { fetch as nodeFetch } from '@scalar/snippetz-plugin-node-fetch'
+import { fetch as jsFetch } from '@scalar/snippetz-plugin-js-fetch'
 
 export function snippetz() {
-  const plugins = [undici, fetch]
+  const plugins = [undici, nodeFetch, jsFetch]
 
   return {
     get(target: TargetId, client: ClientId, request: Partial<Request>) {
@@ -45,8 +46,8 @@ export function snippetz() {
         return details.target === target && details.client === client
       })
     },
-    hasPlugin(target: TargetId, client: ClientId) {
-      return Boolean(this.findPlugin(target, client))
+    hasPlugin(target: string, client: ClientId) {
+      return Boolean(this.findPlugin(target as TargetId, client))
     },
   }
 }

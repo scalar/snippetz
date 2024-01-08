@@ -9,6 +9,6 @@ export type Source = {
   code: string
 }
 
-export type TargetId = 'node'
+export type TargetId = 'node' | 'js'
 
 export type ClientId = 'undici' | 'fetch'
