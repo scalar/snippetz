@@ -51,12 +51,6 @@ describe('ofetch', () => {
   it('has JSON body', () => {
     const source = ofetch({
       url: 'https://example.com',
-      headers: [
-        {
-          name: 'Content-Type',
-          value: 'application/json',
-        },
-      ],
       postData: {
         mimeType: 'application/json',
         text: JSON.stringify({
@@ -66,12 +60,9 @@ describe('ofetch', () => {
     })
 
     expect(source.code).toBe(`ofetch('https://example.com', {
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
+  body: {
     hello: 'world'
-  })
+  }
 })`)
   })
 
