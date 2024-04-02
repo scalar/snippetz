@@ -38,6 +38,14 @@ describe('plugins', async () => {
         target: 'js',
         client: 'fetch',
       },
+      {
+        target: 'js',
+        client: 'ofetch',
+      },
+      {
+        target: 'node',
+        client: 'ofetch',
+      },
     ])
   })
 })
