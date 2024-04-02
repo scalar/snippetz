@@ -7,7 +7,7 @@ describe('ofetch', () => {
       url: 'https://example.com',
     })
 
-    expect(source.code).toBe(`fetch('https://example.com')`)
+    expect(source.code).toBe(`ofetch('https://example.com')`)
   })
 
   it('returns a POST request', () => {
@@ -16,7 +16,7 @@ describe('ofetch', () => {
       method: 'post',
     })
 
-    expect(source.code).toBe(`fetch('https://example.com', {
+    expect(source.code).toBe(`ofetch('https://example.com', {
   method: 'POST'
 })`)
   })
@@ -32,7 +32,7 @@ describe('ofetch', () => {
       ],
     })
 
-    expect(source.code).toBe(`fetch('https://example.com', {
+    expect(source.code).toBe(`ofetch('https://example.com', {
   headers: {
     'Content-Type': 'application/json'
   }
@@ -45,7 +45,7 @@ describe('ofetch', () => {
       headers: [],
     })
 
-    expect(source.code).toBe(`fetch('https://example.com')`)
+    expect(source.code).toBe(`ofetch('https://example.com')`)
   })
 
   it('has JSON body', () => {
@@ -65,7 +65,7 @@ describe('ofetch', () => {
       },
     })
 
-    expect(source.code).toBe(`fetch('https://example.com', {
+    expect(source.code).toBe(`ofetch('https://example.com', {
   headers: {
     'Content-Type': 'application/json'
   },
@@ -90,7 +90,7 @@ describe('ofetch', () => {
       ],
     })
 
-    expect(source.code).toBe(`fetch('https://example.com?foo=bar&bar=foo')`)
+    expect(source.code).toBe(`ofetch('https://example.com?foo=bar&bar=foo')`)
   })
 
   it('has cookies', () => {
@@ -108,7 +108,7 @@ describe('ofetch', () => {
       ],
     })
 
-    expect(source.code).toBe(`fetch('https://example.com', {
+    expect(source.code).toBe(`ofetch('https://example.com', {
   headers: {
     'Set-Cookie': 'foo=bar; bar=foo'
   }
@@ -121,6 +121,6 @@ describe('ofetch', () => {
       cookies: [],
     })
 
-    expect(source.code).toBe(`fetch('https://example.com')`)
+    expect(source.code).toBe(`ofetch('https://example.com')`)
   })
 })

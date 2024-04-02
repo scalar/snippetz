@@ -75,7 +75,7 @@ export function ofetch(request?: Partial<Request>): Source {
     : ''
 
   // Code Template
-  const code = `fetch('${normalizedRequest.url}${queryString}'${jsonOptions})`
+  const code = `ofetch('${normalizedRequest.url}${queryString}'${jsonOptions})`
 
   // Create an AST
   return {
