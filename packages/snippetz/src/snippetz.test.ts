@@ -17,7 +17,7 @@ const { statusCode, body } = await request('https://example.com')`)
     expect(targets).toStrictEqual(['node', 'js'])
 
     const clients = snippetz().clients()
-    expect(clients).toStrictEqual(['undici', 'fetch', 'fetch', 'ofetch'])
+    expect(clients).toStrictEqual(['undici', 'fetch', 'fetch', 'ofetch', 'ofetch'])
   })
 })
 
