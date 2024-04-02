@@ -27,7 +27,13 @@ export function ofetch(request?: Partial<Request>): Source {
       ? arrayToObject(normalizedRequest.queryString)
       : undefined
   )
-  const queryString = searchParams.size ? `?${searchParams.toString()}` : ''
+  
+  if (searchParams.size) {
+    options.query = {}
+    searchParams.forEach((value, key) => {
+      options.query[key] = value
+    })
+  }
 
   // Headers
   if (normalizedRequest.headers?.length) {
@@ -73,7 +79,7 @@ export function ofetch(request?: Partial<Request>): Source {
     : ''
 
   // Code Template
-  const code = `ofetch('${normalizedRequest.url}${queryString}'${jsonOptions})`
+  const code = `ofetch('${normalizedRequest.url}'${jsonOptions})`
 
   // Create an AST
   return {

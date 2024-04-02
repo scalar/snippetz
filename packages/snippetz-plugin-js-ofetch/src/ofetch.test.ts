@@ -81,7 +81,12 @@ describe('ofetch', () => {
       ],
     })
 
-    expect(source.code).toBe(`ofetch('https://example.com?foo=bar&bar=foo')`)
+    expect(source.code).toBe(`ofetch('https://example.com', {
+  query: {
+    foo: 'bar',
+    bar: 'foo'
+  }
+})`)
   })
 
   it('has cookies', () => {
