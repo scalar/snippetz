@@ -54,9 +54,15 @@ importers:
       '@scalar/snippetz-plugin-js-fetch':
         specifier: workspace:*
         version: link:../snippetz-plugin-js-fetch
+      '@scalar/snippetz-plugin-js-ofetch':
+        specifier: workspace:^
+        version: link:../snippetz-plugin-js-ofetch
       '@scalar/snippetz-plugin-node-fetch':
         specifier: workspace:*
         version: link:../snippetz-plugin-node-fetch
+      '@scalar/snippetz-plugin-node-ofetch':
+        specifier: workspace:^
+        version: link:../snippetz-plugin-node-ofetch
       '@scalar/snippetz-plugin-node-undici':
         specifier: workspace:*
         version: link:../snippetz-plugin-node-undici

@@ -16,9 +16,11 @@
   },
   "dependencies": {
     "@scalar/snippetz-core": "workspace:*",
-    "@scalar/snippetz-plugin-node-undici": "workspace:*",
+    "@scalar/snippetz-plugin-js-fetch": "workspace:*",
+    "@scalar/snippetz-plugin-js-ofetch": "workspace:^",
     "@scalar/snippetz-plugin-node-fetch": "workspace:*",
-    "@scalar/snippetz-plugin-js-fetch": "workspace:*"
+    "@scalar/snippetz-plugin-node-ofetch": "workspace:^",
+    "@scalar/snippetz-plugin-node-undici": "workspace:*"
   },
   "files": [
     "dist"
