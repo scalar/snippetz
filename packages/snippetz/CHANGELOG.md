@@ -1,5 +1,20 @@
 # @scalar/snippetz
 
+## 0.1.6
+
+### Patch Changes
+
+- 893d1af: add ofetch
+- 893d1af: add ofetch
+- Updated dependencies [893d1af]
+- Updated dependencies [893d1af]
+  - @scalar/snippetz-plugin-node-ofetch@0.1.1
+  - @scalar/snippetz-plugin-js-ofetch@0.1.1
+  - @scalar/snippetz-core@0.1.4
+  - @scalar/snippetz-plugin-js-fetch@0.1.1
+  - @scalar/snippetz-plugin-node-fetch@0.1.2
+  - @scalar/snippetz-plugin-node-undici@0.1.6
+
 ## 0.1.5
 
 ### Patch Changes

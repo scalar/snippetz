@@ -1,6 +1,6 @@
 {
   "name": "@scalar/snippetz-plugin-js-fetch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",

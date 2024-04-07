@@ -1,5 +1,11 @@
 # @scalar/snippetz-core
 
+## 0.1.4
+
+### Patch Changes
+
+- 893d1af: add ofetch
+
 ## 0.1.3
 
 ### Patch Changes

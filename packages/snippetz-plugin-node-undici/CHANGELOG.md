@@ -1,5 +1,12 @@
 # @scalar/snippetz-plugin-node-undici
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [893d1af]
+  - @scalar/snippetz-core@0.1.4
+
 ## 0.1.5
 
 ### Patch Changes

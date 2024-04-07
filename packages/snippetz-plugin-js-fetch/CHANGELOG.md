@@ -1,5 +1,12 @@
 # @scalar/snippetz-plugin-js-fetch
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [893d1af]
+  - @scalar/snippetz-core@0.1.4
+
 ## 0.1.0
 
 ### Minor Changes
