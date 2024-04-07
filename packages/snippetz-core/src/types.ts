@@ -11,4 +11,4 @@ export type Source = {
 
 export type TargetId = 'node' | 'js'
 
-export type ClientId = 'undici' | 'fetch'
+export type ClientId = 'undici' | 'fetch' | 'ofetch'

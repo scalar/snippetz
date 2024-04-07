@@ -1,6 +1,6 @@
 {
-  "name": "@scalar/snippetz",
-  "version": "0.1.5",
+  "name": "@scalar/snippetz-plugin-js-ofetch",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",
@@ -10,17 +10,13 @@
   },
   "devDependencies": {
     "@vitest/ui": "^1.0.4",
+    "turbo": "^1.11.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vitest": "^1.0.4"
   },
   "dependencies": {
-    "@scalar/snippetz-core": "workspace:*",
-    "@scalar/snippetz-plugin-js-fetch": "workspace:*",
-    "@scalar/snippetz-plugin-js-ofetch": "workspace:^",
-    "@scalar/snippetz-plugin-node-fetch": "workspace:*",
-    "@scalar/snippetz-plugin-node-ofetch": "workspace:^",
-    "@scalar/snippetz-plugin-node-undici": "workspace:*"
+    "@scalar/snippetz-core": "workspace:*"
   },
   "files": [
     "dist"
