@@ -93,21 +93,24 @@ We are API nerds. You too? Let’s chat on Discord: <https://discord.gg/8HeZcRGP
 
 <!-- readme: collaborators,contributors -start -->
 <table>
-<tr>
-    <td align="center">
-        <a href="https://github.com/hanspagel">
-            <img src="https://avatars.githubusercontent.com/u/1577992?v=4" width="100;" alt="hanspagel"/>
-            <br />
-            <sub><b>hanspagel</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/marclave">
-            <img src="https://avatars.githubusercontent.com/u/6176314?v=4" width="100;" alt="marclave"/>
-            <br />
-            <sub><b>marclave</b></sub>
-        </a>
-    </td></tr>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/hanspagel">
+                    <img src="https://avatars.githubusercontent.com/u/1577992?v=4" width="100;" alt="hanspagel"/>
+                    <br />
+                    <sub><b>hanspagel</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/marclave">
+                    <img src="https://avatars.githubusercontent.com/u/6176314?v=4" width="100;" alt="marclave"/>
+                    <br />
+                    <sub><b>marclave</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
 </table>
 <!-- readme: collaborators,contributors -end -->
 
