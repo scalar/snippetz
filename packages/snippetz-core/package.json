@@ -10,16 +10,14 @@
   "version": "0.1.4",
   "type": "module",
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json",
-    "_test": "vitest",
-    "_test:ui": "vitest --ui",
-    "types:check": "tsc --noEmit --skipLibCheck"
+    "build": "scalar-build-rollup",
+    "dev": "nodemon --exec \"vite-node playground/index.ts\" --ext ts --quiet",
+    "test": "vitest",
+    "types:build": "scalar-types-build",
+    "types:check": "scalar-types-check"
   },
   "devDependencies": {
-    "@vitest/ui": "^2.0.4",
-    "typescript": "^5.5.4",
-    "vite": "^5.3.4",
-    "vitest": "^2.0.4"
+    "@scalar/build-tooling": "^0.1.10"
   },
   "dependencies": {
     "@types/har-format": "^1.2.15"
@@ -33,7 +31,7 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
+      "types": "./dist/index.d.ts"
     }
   }
 }
