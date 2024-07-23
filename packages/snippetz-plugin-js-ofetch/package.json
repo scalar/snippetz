@@ -16,11 +16,11 @@
     "types:check": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
-    "@vitest/ui": "^1.0.4",
-    "turbo": "^1.11.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "vitest": "^1.0.4"
+    "@vitest/ui": "^2.0.4",
+    "turbo": "^2.0.9",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.4",
+    "vitest": "^2.0.4"
   },
   "dependencies": {
     "@scalar/snippetz-core": "workspace:*"
