@@ -20,7 +20,7 @@
     "turbo": "^1.11.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
-    "vitest": "^1.0.4"
+    "vitest": "^2.0.4"
   },
   "dependencies": {
     "@scalar/snippetz-core": "workspace:*"
