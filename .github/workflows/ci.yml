@@ -134,8 +134,8 @@ jobs:
         with:
           path: .turbo
           key: turbo-${{ runner.os }}-node-${{ matrix.node-version }}
-      - name: Build packages
-        run: pnpm build:packages
+      - name: Build
+        run: pnpm build
       - name: Run tests
         run: pnpm test:ci
 
