@@ -137,7 +137,7 @@ jobs:
       - name: Build
         run: pnpm build
       - name: Run tests
-        run: pnpm test:ci
+        run: pnpm test
 
   release:
     if: github.ref == 'refs/heads/main'
