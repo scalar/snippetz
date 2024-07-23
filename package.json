@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "dev": "pnpm --filter demo dev",
     "build": "turbo build",
     "lint": "pnpm -r lint:check",
     "lint:fix": "pnpm -r lint:fix",

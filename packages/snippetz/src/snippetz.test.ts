@@ -58,7 +58,6 @@ describe('hasPlugin', async () => {
   })
 
   it('returns false if it doesn’t know the plugin', async () => {
-    // @ts-expect-error Testing invalid input
     const result = snippetz().hasPlugin('node', 'fantasy')
 
     expect(result).toBe(false)

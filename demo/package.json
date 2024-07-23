@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "types:build": "vue-tsc -p tsconfig.build.json",
+    "types:check": "vue-tsc --composite false",
     "preview": "vite preview"
   },
   "dependencies": {
