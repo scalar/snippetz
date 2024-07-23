@@ -15,12 +15,6 @@
     "test:ui": "vitest --ui",
     "types:check": "tsc --noEmit --skipLibCheck"
   },
-  "devDependencies": {
-    "@vitest/ui": "^1.6.0",
-    "typescript": "^5.4.5",
-    "vite": "^5.3.1",
-    "vitest": "^1.6.0"
-  },
   "dependencies": {
     "@scalar/snippetz-core": "workspace:*",
     "@scalar/snippetz-plugin-js-fetch": "workspace:*",
