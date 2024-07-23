@@ -1,5 +1,12 @@
 {
   "name": "@scalar/snippetz-core",
+  "license": "MIT",
+  "author": "Scalar (https://github.com/scalar)",
+  "homepage": "https://github.com/scalar/snippetz",
+  "bugs": "https://github.com/scalar/snippetz/issues/new/choose",
+  "engines": {
+    "node": ">=18"
+  },
   "version": "0.1.4",
   "type": "module",
   "scripts": {
