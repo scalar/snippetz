@@ -11,7 +11,7 @@
   "dependencies": {
     "@scalar/snippetz": "workspace:*",
     "@scalar/snippetz-core": "workspace:*",
-    "vue": "^3.3.11"
+    "vue": "^3.4.33"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
