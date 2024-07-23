@@ -63,7 +63,9 @@ export function undici(request?: Partial<Request>): Source {
 
     // JSON
     if (normalizedRequest.postData.mimeType === 'application/json') {
-      options.body = `JSON.stringify(${objectToString(JSON.parse(options.body))})`
+      options.body = `JSON.stringify(${objectToString(
+        JSON.parse(options.body)
+      )})`
     }
   }
 

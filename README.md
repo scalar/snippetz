@@ -24,7 +24,7 @@ npm install @scalar/snippetz
 import { snippetz } from '@scalar/snippetz'
 
 const snippet = snippetz().print('node', 'undici', {
-  url: 'https://example.com'
+  url: 'https://example.com',
 })
 
 /* Output */
@@ -73,7 +73,7 @@ const snippet = snippetz().hasPlugin('node', 'undici')
 import { undici } from '@scalar/snippetz-plugin-undici'
 
 const source = undici({
-  url: 'https://example.com'
+  url: 'https://example.com',
 })
 
 console.log(source.code)

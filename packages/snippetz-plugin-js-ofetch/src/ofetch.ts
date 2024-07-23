@@ -27,7 +27,7 @@ export function ofetch(request?: Partial<Request>): Source {
       ? arrayToObject(normalizedRequest.queryString)
       : undefined
   )
-  
+
   if (searchParams.size) {
     options.query = {}
     searchParams.forEach((value, key) => {
