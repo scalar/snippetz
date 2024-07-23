@@ -10,10 +10,11 @@
   "version": "0.1.6",
   "type": "module",
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json",
+    "build": "scalar-build-rollup",
+    "dev": "nodemon --exec \"vite-node playground/index.ts\" --ext ts --quiet",
     "test": "vitest",
-    "test:ui": "vitest --ui",
-    "types:check": "tsc --noEmit --skipLibCheck"
+    "types:build": "scalar-types-build",
+    "types:check": "scalar-types-check"
   },
   "dependencies": {
     "@scalar/snippetz-core": "workspace:*",
@@ -32,7 +33,10 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
+      "types": "./dist/index.d.ts"
     }
+  },
+  "devDependencies": {
+    "@scalar/build-tooling": "^0.1.10"
   }
 }

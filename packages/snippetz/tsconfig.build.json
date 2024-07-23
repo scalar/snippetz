@@ -1,12 +1,12 @@
 {
-    "extends": "../../tsconfig.json",
-    "include": ["src"],
-    "exclude": ["dist", "test", "vite.config.ts", "**/*.test.ts"],
-    "compilerOptions": {
-      "declaration": true,
-      "declarationMap": true,
-      "emitDeclarationOnly": true,
-      "outDir": "dist/",
-      "allowSyntheticDefaultImports": true
-    }
+  "extends": "./tsconfig.json",
+  "include": ["src"],
+  "exclude": ["**/*.test.ts"],
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist/"
   }
+}
