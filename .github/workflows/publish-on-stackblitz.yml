@@ -1,0 +1,31 @@
+name: Publish on Stackblitz
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    if: github.head_ref == 'changeset-release/main'
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Turborepo cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-node-20
+      - name: Build
+        run: pnpm build
+      - name: Publish on Stackblitz
+        run: npx pkg-pr-new publish ./packages/*
