@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@scalar/snippetz": "workspace:*",
-    "@scalar/snippetz-core": "workspace:*",
     "vue": "^3.4.35"
   },
   "devDependencies": {
