@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import CodeExample from './components/CodeExample.vue'
-import { snippetz } from '@scalar/snippetz'
-import { type ClientId, type TargetId } from '@scalar/snippetz/core'
+import { snippetz, type ClientId, type TargetId } from '@scalar/snippetz'
 import { ref } from 'vue'
 
 const selectedTarget = ref<TargetId>('node')

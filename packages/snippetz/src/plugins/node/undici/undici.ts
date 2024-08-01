@@ -79,7 +79,6 @@ export function undici(request?: Partial<Request>): Source {
 
 const { statusCode, body } = await request('${normalizedRequest.url}${queryString}'${jsonOptions})`
 
-  // Create an AST
   return {
     target: 'node',
     client: 'undici',

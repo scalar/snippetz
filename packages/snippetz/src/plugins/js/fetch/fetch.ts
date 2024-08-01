@@ -77,7 +77,6 @@ export function fetch(request?: Partial<Request>): Source {
   // Code Template
   const code = `fetch('${normalizedRequest.url}${queryString}'${jsonOptions})`
 
-  // Create an AST
   return {
     target: 'js',
     client: 'fetch',

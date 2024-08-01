@@ -81,7 +81,6 @@ export function ofetch(request?: Partial<Request>): Source {
   // Code Template
   const code = `ofetch('${normalizedRequest.url}'${jsonOptions})`
 
-  // Create an AST
   return {
     target: 'js',
     client: 'ofetch',

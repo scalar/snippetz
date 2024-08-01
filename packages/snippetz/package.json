@@ -16,10 +16,10 @@
     "types:check": "scalar-types-check"
   },
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG"
   ],
   "types": "./dist/index.d.ts",
-  "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "exports": {
     ".": {
