@@ -13,13 +13,13 @@
   "dependencies": {
     "@scalar/snippetz": "workspace:*",
     "@scalar/snippetz-core": "workspace:*",
-    "vue": "^3.4.33"
+    "vue": "^3.4.35"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue": "^5.1.1",
     "shikiji": "^0.10.2",
     "typescript": "^5.5.4",
-    "vite": "^5.3.4",
-    "vue-tsc": "^2.0.28"
+    "vite": "^5.3.5",
+    "vue-tsc": "^2.0.29"
   }
 }
