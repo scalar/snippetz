@@ -3,7 +3,7 @@ import {
   type Request,
   arrayToObject,
   objectToString,
-} from '@scalar/snippetz-core'
+} from '../../../core'
 
 export function ofetch(request?: Partial<Request>): Source {
   // Defaults

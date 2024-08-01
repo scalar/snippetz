@@ -3,7 +3,7 @@ import {
   type Request,
   arrayToObject,
   objectToString,
-} from '@scalar/snippetz-core'
+} from '../../../core'
 
 export function fetch(request?: Partial<Request>): Source {
   // Defaults
@@ -79,7 +79,7 @@ export function fetch(request?: Partial<Request>): Source {
 
   // Create an AST
   return {
-    target: 'js',
+    target: 'node',
     client: 'fetch',
     code,
   }

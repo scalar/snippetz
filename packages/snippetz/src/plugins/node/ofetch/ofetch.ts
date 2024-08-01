@@ -3,9 +3,9 @@ import {
   type Request,
   arrayToObject,
   objectToString,
-} from '@scalar/snippetz-core'
+} from '../../../core'
 
-export function fetch(request?: Partial<Request>): Source {
+export function ofetch(request?: Partial<Request>): Source {
   // Defaults
   const normalizedRequest = {
     method: 'GET',
@@ -27,7 +27,13 @@ export function fetch(request?: Partial<Request>): Source {
       ? arrayToObject(normalizedRequest.queryString)
       : undefined
   )
-  const queryString = searchParams.size ? `?${searchParams.toString()}` : ''
+
+  if (searchParams.size) {
+    options.query = {}
+    searchParams.forEach((value, key) => {
+      options.query[key] = value
+    })
+  }
 
   // Headers
   if (normalizedRequest.headers?.length) {
@@ -63,9 +69,7 @@ export function fetch(request?: Partial<Request>): Source {
 
     // JSON
     if (normalizedRequest.postData.mimeType === 'application/json') {
-      options.body = `JSON.stringify(${objectToString(
-        JSON.parse(options.body)
-      )})`
+      options.body = JSON.parse(options.body)
     }
   }
 
@@ -75,12 +79,12 @@ export function fetch(request?: Partial<Request>): Source {
     : ''
 
   // Code Template
-  const code = `fetch('${normalizedRequest.url}${queryString}'${jsonOptions})`
+  const code = `ofetch('${normalizedRequest.url}'${jsonOptions})`
 
   // Create an AST
   return {
     target: 'node',
-    client: 'fetch',
+    client: 'ofetch',
     code,
   }
 }
