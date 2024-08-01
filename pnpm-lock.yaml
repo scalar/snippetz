@@ -14,6 +14,9 @@ importers:
       '@vitest/ui':
         specifier: ^2.0.5
         version: 2.0.5(vitest@2.0.5)
+      rollup:
+        specifier: ^4.19.2
+        version: 4.19.2
       tsc-alias:
         specifier: ^1.8.10
         version: 1.8.10
