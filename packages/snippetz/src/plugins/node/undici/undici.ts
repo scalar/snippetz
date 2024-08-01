@@ -3,9 +3,9 @@ import {
   type Request,
   arrayToObject,
   objectToString,
-} from '@scalar/snippetz-core'
+} from '../../../core'
 
-export function ofetch(request?: Partial<Request>): Source {
+export function undici(request?: Partial<Request>): Source {
   // Defaults
   const normalizedRequest = {
     method: 'GET',
@@ -15,7 +15,7 @@ export function ofetch(request?: Partial<Request>): Source {
   // Normalization
   normalizedRequest.method = normalizedRequest.method.toUpperCase()
 
-  // Reset fetch defaults
+  // Reset undici defaults
   const options: Record<string, any> = {
     method:
       normalizedRequest.method === 'GET' ? undefined : normalizedRequest.method,
@@ -27,13 +27,7 @@ export function ofetch(request?: Partial<Request>): Source {
       ? arrayToObject(normalizedRequest.queryString)
       : undefined
   )
-
-  if (searchParams.size) {
-    options.query = {}
-    searchParams.forEach((value, key) => {
-      options.query[key] = value
-    })
-  }
+  const queryString = searchParams.size ? `?${searchParams.toString()}` : ''
 
   // Headers
   if (normalizedRequest.headers?.length) {
@@ -69,7 +63,9 @@ export function ofetch(request?: Partial<Request>): Source {
 
     // JSON
     if (normalizedRequest.postData.mimeType === 'application/json') {
-      options.body = JSON.parse(options.body)
+      options.body = `JSON.stringify(${objectToString(
+        JSON.parse(options.body)
+      )})`
     }
   }
 
@@ -79,12 +75,13 @@ export function ofetch(request?: Partial<Request>): Source {
     : ''
 
   // Code Template
-  const code = `ofetch('${normalizedRequest.url}'${jsonOptions})`
+  const code = `import { request } from 'undici'
 
-  // Create an AST
+const { statusCode, body } = await request('${normalizedRequest.url}${queryString}'${jsonOptions})`
+
   return {
     target: 'node',
-    client: 'ofetch',
+    client: 'undici',
     code,
   }
 }

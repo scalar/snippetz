@@ -4,22 +4,19 @@
 [![Contributors](https://img.shields.io/github/contributors/scalar/snippetz)](https://github.com/scalar/snippetz/graphs/contributors)
 [![GitHub License](https://img.shields.io/github/license/scalar/snippetz)](https://github.com/scalar/snippetz/blob/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/%40scalar/snippetz)](https://www.npmjs.com/package/@scalar/snippetz)
-[![Discord](https://img.shields.io/discord/1135330207960678410?style=flat&color=5865F2)](https://discord.gg/8HeZcRGPFS)
-
-> [!WARNING]
-> This package is in early development. Don’t use it in production!
+[![Discord](https://img.shields.io/discord/1135330207960678410?style=flat&color=5865F2)](https://discord.gg/scalar)
 
 A modern way to generate code examples for different languages.
 
 ## Installation
 
-```
+```bash
 npm install @scalar/snippetz
 ```
 
 ## Usage
 
-```js
+```ts
 import { snippetz } from '@scalar/snippetz'
 
 const snippet = snippetz().print('node', 'undici', {
@@ -39,7 +36,7 @@ const snippet = snippetz().print('node', 'undici', {
 
 ### Get all plugins
 
-```js
+```ts
 import { snippetz } from '@scalar/snippetz'
 
 const snippet = snippetz().plugins()
@@ -56,7 +53,7 @@ const snippet = snippetz().plugins()
 
 ### Check if a plugin is loaded
 
-```js
+```ts
 import { snippetz } from '@scalar/snippetz'
 
 const snippet = snippetz().hasPlugin('node', 'undici')
@@ -66,10 +63,12 @@ const snippet = snippetz().hasPlugin('node', 'undici')
 // true
 ```
 
-### Use just one plugin
+### Lean usage
 
-```js
-import { undici } from '@scalar/snippetz-plugin-undici'
+You can also just use one specific plugin to keep your bundle size small.
+
+```ts
+import { undici } from '@scalar/snippetz/plugins/node/undici'
 
 const source = undici({
   url: 'https://example.com',
@@ -86,9 +85,11 @@ console.log(source.code)
 
 ## Community
 
-We are API nerds. You too? Let’s chat on Discord: <https://discord.gg/8HeZcRGPFS>
+We are API nerds. You too? Let’s chat on Discord: <https://discord.gg/scalar>
 
 ## Contributors
+
+Contributions are welcome! Read [`CONTRIBUTING`](https://github.com/scalar/snippetz/blob/main/CONTRIBUTING).
 
 <!-- readme: collaborators,contributors -start -->
 <table>
@@ -112,8 +113,6 @@ We are API nerds. You too? Let’s chat on Discord: <https://discord.gg/8HeZcRGP
 	<tbody>
 </table>
 <!-- readme: collaborators,contributors -end -->
-
-Contributions are welcome! Read [`CONTRIBUTING`](https://github.com/scalar/snippetz/blob/main/CONTRIBUTING).
 
 ## License
 
