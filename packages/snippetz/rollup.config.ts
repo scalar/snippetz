@@ -1,9 +1,10 @@
 import {
     addPackageFileExports,
     createRollupConfig,
+    findEntryPoints,
 } from '@scalar/build-tooling'
 
-const entries = ['src/index.ts']
+const entries = await findEntryPoints()
 
 export default createRollupConfig({
     typescript: true,
