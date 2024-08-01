@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue'
 import { snippetz } from '@scalar/snippetz'
-import { objectToString, type ClientId, type TargetId } from '@scalar/snippetz-core'
+import {
+  objectToString,
+  type ClientId,
+  type TargetId,
+} from '@scalar/snippetz-core'
 import { getHighlighter } from 'shikiji'
 
 const props = defineProps<{
-  target: TargetId,
-  client: ClientId,
-  request: any,
+  target: TargetId
+  client: ClientId
+  request: any
 }>()
 
 const code = ref('')
@@ -25,7 +29,8 @@ async function renderExample() {
     langs: ['javascript', 'json'],
   })
 
-  const example = `/* Snippetz */
+  const example =
+    `/* Snippetz */
 
 import { snippetz } from '@scalar/snippetz'
 
@@ -37,11 +42,17 @@ const snippet = snippetz().print('${props.target}', '${props.client}', request)
 
 // ` + code.value.split(`\n`).join(`\n// `)
 
-  highlightedConfiguration.value = shiki.codeToHtml(JSON.stringify(props.request, null, 2), { lang: 'json', theme: 'vitesse-dark' })
-  highlightedResult.value = shiki.codeToHtml(code.value, { lang: 'javascript', theme: 'vitesse-dark' })
+  highlightedConfiguration.value = shiki.codeToHtml(
+    JSON.stringify(props.request, null, 2),
+    { lang: 'json', theme: 'vitesse-dark' }
+  )
+  highlightedResult.value = shiki.codeToHtml(code.value, {
+    lang: 'javascript',
+    theme: 'vitesse-dark',
+  })
   highlightedExample.value = shiki.codeToHtml(example, {
     lang: 'javascript',
-    theme: 'vitesse-dark'
+    theme: 'vitesse-dark',
   })
 }
 
@@ -54,9 +65,9 @@ watch(props, renderExample)
 
 <template>
   <div class="code-block">
-      <div class="code-block-content">
-        <div class="source" v-html="highlightedExample" />
-      </div>
+    <div class="code-block-content">
+      <div class="source" v-html="highlightedExample" />
+    </div>
   </div>
 </template>
 

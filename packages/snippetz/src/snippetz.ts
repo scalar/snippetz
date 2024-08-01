@@ -48,8 +48,8 @@ export function snippetz() {
         return details.target === target && details.client === client
       })
     },
-    hasPlugin(target: string, client: ClientId) {
-      return Boolean(this.findPlugin(target as TargetId, client))
+    hasPlugin(target: string, client: string) {
+      return Boolean(this.findPlugin(target as TargetId, client as ClientId))
     },
   }
 }

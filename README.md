@@ -1,7 +1,6 @@
 # Snippetz
 
 [![CI](https://github.com/scalar/snippetz/actions/workflows/ci.yml/badge.svg)](https://github.com/scalar/snippetz/actions/workflows/ci.yml)
-[![Release](https://github.com/scalar/snippetz/actions/workflows/release.yml/badge.svg)](https://github.com/scalar/snippetz/actions/workflows/release.yml)
 [![Contributors](https://img.shields.io/github/contributors/scalar/snippetz)](https://github.com/scalar/snippetz/graphs/contributors)
 [![GitHub License](https://img.shields.io/github/license/scalar/snippetz)](https://github.com/scalar/snippetz/blob/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/%40scalar/snippetz)](https://www.npmjs.com/package/@scalar/snippetz)
@@ -24,7 +23,7 @@ npm install @scalar/snippetz
 import { snippetz } from '@scalar/snippetz'
 
 const snippet = snippetz().print('node', 'undici', {
-  url: 'https://example.com'
+  url: 'https://example.com',
 })
 
 /* Output */
@@ -73,7 +72,7 @@ const snippet = snippetz().hasPlugin('node', 'undici')
 import { undici } from '@scalar/snippetz-plugin-undici'
 
 const source = undici({
-  url: 'https://example.com'
+  url: 'https://example.com',
 })
 
 console.log(source.code)

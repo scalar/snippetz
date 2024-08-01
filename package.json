@@ -4,11 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "pnpm -r build",
-    "test": "pnpm -r test",
     "dev": "pnpm --filter demo dev",
-    "bump": "CI=true pnpm run test && pnpm changeset version",
-    "types:check": "pnpm -r types:check"
+    "build": "turbo build",
+    "format": "pnpm prettier --write .",
+    "format:check": "pnpm prettier --check .",
+    "lint": "pnpm -r lint:check",
+    "lint:fix": "pnpm -r lint:fix",
+    "test": "vitest",
+    "types:check": "turbo --concurrency=100 types:check"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
