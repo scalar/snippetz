@@ -1,5 +1,11 @@
 # @scalar/snippetz
 
+## 0.2.0
+
+### Minor Changes
+
+- 0b19d5a: refactor!: move everything into a single package with multiple entrypoints
+
 ## 0.1.6
 
 ### Patch Changes
