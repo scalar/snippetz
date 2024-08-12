@@ -10,29 +10,49 @@
   "version": "0.1.6",
   "type": "module",
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json",
+    "build": "scalar-build-rollup",
     "test": "vitest",
-    "test:ui": "vitest --ui",
-    "types:check": "tsc --noEmit --skipLibCheck"
-  },
-  "dependencies": {
-    "@scalar/snippetz-core": "workspace:*",
-    "@scalar/snippetz-plugin-js-fetch": "workspace:*",
-    "@scalar/snippetz-plugin-js-ofetch": "workspace:^",
-    "@scalar/snippetz-plugin-node-fetch": "workspace:*",
-    "@scalar/snippetz-plugin-node-ofetch": "workspace:^",
-    "@scalar/snippetz-plugin-node-undici": "workspace:*"
+    "types:build": "scalar-types-build",
+    "types:check": "scalar-types-check"
   },
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG"
   ],
   "types": "./dist/index.d.ts",
-  "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
+      "types": "./dist/index.d.ts"
+    },
+    "./plugins/node/undici": {
+      "import": "./dist/plugins/node/undici/index.js",
+      "types": "./dist/plugins/node/undici/index.d.ts"
+    },
+    "./plugins/node/ofetch": {
+      "import": "./dist/plugins/node/ofetch/index.js",
+      "types": "./dist/plugins/node/ofetch/index.d.ts"
+    },
+    "./plugins/node/fetch": {
+      "import": "./dist/plugins/node/fetch/index.js",
+      "types": "./dist/plugins/node/fetch/index.d.ts"
+    },
+    "./plugins/js/ofetch": {
+      "import": "./dist/plugins/js/ofetch/index.js",
+      "types": "./dist/plugins/js/ofetch/index.d.ts"
+    },
+    "./plugins/js/fetch": {
+      "import": "./dist/plugins/js/fetch/index.js",
+      "types": "./dist/plugins/js/fetch/index.d.ts"
+    },
+    "./core": {
+      "import": "./dist/core/index.js",
+      "types": "./dist/core/index.d.ts"
     }
+  },
+  "devDependencies": {
+    "@scalar/build-tooling": "^0.1.10",
+    "@types/har-format": "^1.2.15"
   }
 }

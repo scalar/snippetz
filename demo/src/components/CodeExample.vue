@@ -5,7 +5,7 @@ import {
   objectToString,
   type ClientId,
   type TargetId,
-} from '@scalar/snippetz-core'
+} from '@scalar/snippetz/core'
 import { getHighlighter } from 'shikiji'
 
 const props = defineProps<{
