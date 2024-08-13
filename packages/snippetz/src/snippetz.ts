@@ -5,6 +5,12 @@ import { fetch as jsFetch } from './plugins/js/fetch'
 import { ofetch as jsOFetch } from './plugins/js/ofetch'
 import { ofetch as nodeOFetch } from './plugins/node/ofetch'
 
+import {
+  HTTPSnippet,
+  type TargetId as Target,
+  type HarRequest,
+} from 'httpsnippet-lite'
+
 export function snippetz() {
   const plugins = [undici, nodeFetch, jsFetch, jsOFetch, nodeOFetch]
 
@@ -50,6 +56,11 @@ export function snippetz() {
     },
     hasPlugin(target: string, client: string) {
       return Boolean(this.findPlugin(target as TargetId, client as ClientId))
+    },
+
+    async convert(request: any, target: string, client?: string) {
+      const snippet = new HTTPSnippet(request as HarRequest)
+      return (await snippet.convert(target as Target, client)) as string
     },
   }
 }

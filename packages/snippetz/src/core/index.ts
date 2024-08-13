@@ -3,3 +3,5 @@ export * from './utils/isKeyNeedsQuotes'
 export * from './utils/objectToString'
 
 export * from './types'
+
+export { availableTargets as allTargets, HTTPSnippet } from 'httpsnippet-lite'

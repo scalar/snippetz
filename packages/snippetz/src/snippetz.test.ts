@@ -69,3 +69,25 @@ describe('hasPlugin', async () => {
     expect(result).toBe(false)
   })
 })
+
+describe('convert', async () => {
+  it('converts a request outside of the scalar types to snippet using httpsnippet-lite', async () => {
+    const request = {
+      method: 'GET',
+      url: 'http://mockbin.com/request',
+    }
+
+    const snippet = await snippetz().convert(request, 'python')
+
+    expect(snippet).toBe(`import http.client
+
+conn = http.client.HTTPConnection("mockbin.com")
+
+conn.request("GET", "/request")
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))`)
+  })
+})

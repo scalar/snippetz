@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "@scalar/build-tooling": "^0.1.10",
-    "@types/har-format": "^1.2.15"
+    "@types/har-format": "^1.2.15",
+    "httpsnippet-lite": "^3.0.5"
   }
 }
