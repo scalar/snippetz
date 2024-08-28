@@ -1,3 +1,6 @@
+> [!WARNING]  
+> We moved `@scalar/snippetz` to [https://github.com/scalar/scalar](https://github.com/scalar/scalar/tree/main/packages/snippetz)
+
 # Snippetz
 
 [![CI](https://github.com/scalar/snippetz/actions/workflows/ci.yml/badge.svg)](https://github.com/scalar/snippetz/actions/workflows/ci.yml)
